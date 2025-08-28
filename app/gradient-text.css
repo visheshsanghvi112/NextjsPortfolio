@@ -1,0 +1,17 @@
+/* Custom CSS class version for gradient text */
+.gradient-heading {
+  background: linear-gradient(to right, #ff6ec7, #a855f7, #ff8c42);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+/* Alternative with better browser support */
+.gradient-text-portfolio {
+  background: linear-gradient(90deg, #ff6ec7 0%, #a855f7 50%, #ff8c42 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
