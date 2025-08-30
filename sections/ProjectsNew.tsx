@@ -2,34 +2,39 @@
 "use client";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { HiArrowRight, HiExternalLink } from 'react-icons/hi';
 import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 const featuredProjects = [
   {
-    name: 'Next Ventures',
-    description: 'A futuristic SaaS platform for early-stage entrepreneurs to pitch, browse, and engage with startup ideas.',
+    name: 'JHC Research',
+    description: 'Research organization website with publications and profiles.',
     tech: [
-      { name: 'Next.js', icon: <SiNextdotjs />, color: 'text-white' },
-      { name: 'React', icon: <SiReact />, color: 'text-blue-400' },
-      { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-500' },
-      { name: 'Tailwind', icon: <SiTailwindcss />, color: 'text-cyan-400' },
+      { name: 'HTML', icon: <SiReact />, color: 'text-blue-400' },
+      { name: 'CSS', icon: <SiTailwindcss />, color: 'text-cyan-400' },
+      { name: 'JavaScript', icon: <SiTypescript />, color: 'text-yellow-400' },
     ],
     status: 'Live',
-    link: 'https://nextventures.com',
+    live: 'https://jhc-researchh.vercel.app',
+    code: 'https://github.com/visheshsanghvi112/jhc-research-horizon-90',
+    image: '/projects/jhc-research.png',
     featured: true,
   },
   {
-    name: 'E-Commerce Dashboard',
-    description: 'Advanced analytics platform with real-time data visualization and AI-powered insights.',
+    name: 'Billifyy',
+    description: 'Invoice generator and management app for freelancers.',
     tech: [
-      { name: 'Next.js', icon: <SiNextdotjs />, color: 'text-white' },
-      { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-500' },
-      { name: 'Tailwind', icon: <SiTailwindcss />, color: 'text-cyan-400' },
+      { name: 'React', icon: <SiReact />, color: 'text-blue-400' },
+      { name: 'Vite', icon: <SiNextdotjs />, color: 'text-white' },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: 'text-cyan-400' },
+      { name: 'Firebase', icon: <SiTypescript />, color: 'text-yellow-400' },
     ],
-    status: 'In Development',
-    link: 'https://ecommerce-dash.vercel.app',
-    featured: false,
+    status: 'Live',
+    live: 'https://billifyy.vercel.app',
+    code: 'https://github.com/visheshsanghvi112/billifyy',
+    image: '/projects/billifyy.png',
+    featured: true,
   },
 ];
 
@@ -85,26 +90,43 @@ export default function Projects() {
                 {project.status}
               </div>
 
-              {/* Project Image Placeholder */}
+              {/* Project Image & Enhanced Overlay (Optimized) */}
               <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl aspect-video mb-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-gray-600/10"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-5xl mb-3 text-white/30">💻</div>
-                    <div className="text-white/70 text-lg font-medium">{project.name}</div>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  width={800}
+                  height={450}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover rounded-xl"
+                  placeholder="blur"
+                  blurDataURL="/placeholder.png"
+                  priority={false}
+                />
+                {/* Overlay with links (simplified) */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="flex gap-3">
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600/90 hover:bg-green-700 text-white px-3 py-1.5 rounded-lg font-semibold shadow transition-all flex items-center gap-2"
+                    >
+                      Live <HiExternalLink className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gray-900/90 hover:bg-gray-800 text-white px-3 py-1.5 rounded-lg font-semibold shadow transition-all flex items-center gap-2 border border-gray-800"
+                    >
+                      Code <HiExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-4 rounded-full transition-all"
-                  >
-                    <HiExternalLink className="w-6 h-6" />
-                  </a>
+                {/* Project Name Overlay (less blur) */}
+                <div className="absolute bottom-0 left-0 right-0 bg-black/30 py-2 px-4 rounded-b-xl">
+                  <div className="text-white/90 text-lg font-bold">{project.name}</div>
                 </div>
               </div>
 
