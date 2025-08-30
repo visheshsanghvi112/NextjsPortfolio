@@ -1,0 +1,48 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Ultra-modern gradient for high-res -->
+    <linearGradient id="ultraGradientHD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5"/>
+      <stop offset="30%" style="stop-color:#7c3aed"/>
+      <stop offset="70%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    
+    <!-- High-quality shadow -->
+    <filter id="hdShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.15"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <!-- Premium glow for HD -->
+    <filter id="hdGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glass effect HD -->
+    <linearGradient id="glassHD" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" style="stop-color:#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" style="stop-color:#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Main container HD -->
+  <rect width="192" height="192" rx="42" fill="url(#ultraGradientHD)" filter="url(#hdShadow)"/>
+  
+  <!-- Glass overlay HD -->
+  <rect width="192" height="96" rx="42" fill="url(#glassHD)"/>
+  
+  <!-- Ultra-modern V HD -->
+  <path d="M30 48 L87 150 L105 150 L162 48 L144 48 L96 132 L48 48 Z" fill="white" fill-opacity="0.98" filter="url(#hdGlow)"/>
+  
+  <!-- Sophisticated S HD -->
+  <path d="M168 63 C168 51 159 42 147 42 L129 42 C123 42 120 45 120 48 C120 51 123 54 129 54 L144 54 C150 54 153 57 153 63 C153 69 150 72 144 72 L132 72 C120 72 111 81 111 93 C111 105 120 114 132 114 L147 114 C153 114 156 111 156 108 C156 105 153 102 147 102 L135 102 C129 102 126 99 126 93 C126 87 129 84 135 84 L147 84 C159 84 168 75 168 63 Z" fill="white" fill-opacity="0.98" filter="url(#hdGlow)"/>
+  
+  <!-- Subtle highlight accent HD -->
+  <rect x="12" y="12" width="168" height="6" rx="3" fill="white" fill-opacity="0.25"/>
+</svg>

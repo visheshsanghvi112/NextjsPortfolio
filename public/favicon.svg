@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="#0b0b0b"/><path d="M18 46L32 16l14 30h-8l-6-14-6 14z" fill="url(#g)"/></svg>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Ultra-modern gradient inspired by top tech companies -->
+    <linearGradient id="ultraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5"/>
+      <stop offset="30%" style="stop-color:#7c3aed"/>
+      <stop offset="70%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    
+    <!-- Sophisticated shadow -->
+    <filter id="sophisticatedShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <!-- Premium inner glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glass effect -->
+    <linearGradient id="glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff" stop-opacity="0.25"/>
+      <stop offset="50%" style="stop-color:#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" style="stop-color:#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Main container with premium gradient and shadow -->
+  <rect width="32" height="32" rx="7" fill="url(#ultraGradient)" filter="url(#sophisticatedShadow)"/>
+  
+  <!-- Glass overlay for premium feel -->
+  <rect width="32" height="16" rx="7" fill="url(#glass)"/>
+  
+  <!-- Ultra-modern V - geometric and bold -->
+  <path d="M5 8 L14.5 25 L17.5 25 L27 8 L24 8 L16 22 L8 8 Z" fill="white" fill-opacity="0.98" filter="url(#innerGlow)"/>
+  
+  <!-- Sophisticated S - flowing and modern -->
+  <path d="M28 10.5 C28 8.5 26.5 7 24.5 7 L21.5 7 C20.5 7 20 7.5 20 8 C20 8.5 20.5 9 21.5 9 L24 9 C25 9 25.5 9.5 25.5 10.5 C25.5 11.5 25 12 24 12 L22 12 C20 12 18.5 13.5 18.5 15.5 C18.5 17.5 20 19 22 19 L24.5 19 C25.5 19 26 18.5 26 18 C26 17.5 25.5 17 24.5 17 L22.5 17 C21.5 17 21 16.5 21 15.5 C21 14.5 21.5 14 22.5 14 L24.5 14 C26.5 14 28 12.5 28 10.5 Z" fill="white" fill-opacity="0.98" filter="url(#innerGlow)"/>
+  
+  <!-- Subtle highlight accent -->
+  <rect x="2" y="2" width="28" height="1" rx="0.5" fill="white" fill-opacity="0.3"/>
+</svg>

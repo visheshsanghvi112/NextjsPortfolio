@@ -1,7 +1,5 @@
-import CommandPalette from '../components/CommandPalette';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import CustomCursor from '../components/CustomCursor';
+import LayoutContent from '../components/LayoutContent';
+import { ContactModalProvider } from '../contexts/ContactModalContext';
 import '../app/globals.css';
 import type { Metadata } from 'next';
 
@@ -80,12 +78,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
       </head>
-      <body className="bg-black text-white">
-        <CommandPalette />
-        <CustomCursor mode="enhanced" enableSelector=".cursor-target" routesAllowlist={["/", "/contact"]} />
-        <Header />
-        {children}
-        <Footer />
+      <body className="bg-black text-white" suppressHydrationWarning>
+        <ContactModalProvider>
+          <LayoutContent>{children}</LayoutContent>
+        </ContactModalProvider>
       </body>
     </html>
   );

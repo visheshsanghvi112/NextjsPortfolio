@@ -3,7 +3,7 @@ import type React from 'react';
 import { motion } from 'framer-motion';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-// Header, Footer, CustomCursor are provided by RootLayout
+// Header and Footer are provided by RootLayout
 import { HiArrowLeft, HiExternalLink, HiCode, HiCalendar, HiUsers, HiLightningBolt, HiTag } from 'react-icons/hi';
 import { SiFigma } from 'react-icons/si';
 import projects from '@/lib/projectsData';
@@ -78,7 +78,7 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-  {/* Header and CustomCursor are rendered by RootLayout */}
+  {/* Header is rendered by RootLayout */}
 
       {/* Back Navigation */}
       <motion.div

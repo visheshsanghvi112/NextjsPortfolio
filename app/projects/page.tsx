@@ -79,6 +79,7 @@ type UIProject = {
   metrics: { [key: string]: string };
 };
 
+// Mapping function for better performance
 const mapToUI = (p: (typeof projects)[number], index: number): UIProject => {
   const technologies = (p.stack || []).map((name) => {
     const mapped = techIconMap[name] || { icon: null, color: 'text-gray-300' };
@@ -90,7 +91,7 @@ const mapToUI = (p: (typeof projects)[number], index: number): UIProject => {
     subtitle: p.category || 'Project',
     description: p.description,
     longDescription: p.description,
-  image: `/projects/${p.id}.png`,
+    image: `/projects/${p.id}.png`,
     category: p.category || 'Project',
     status: p.status || 'Live',
     year: p.year || '',
@@ -112,10 +113,11 @@ const mapToUI = (p: (typeof projects)[number], index: number): UIProject => {
 
 const uiProjects: UIProject[] = projects.map(mapToUI);
 
-// Simple grid windowing to render a subset and progressively reveal more
-const useProgressiveList = <T,>(items: T[], initial = 12, step = 8) => {
+// Optimized progressive loading with better performance
+const useProgressiveList = <T,>(items: T[], initial = 8, step = 6) => {
   const [count, setCount] = useState(initial);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Reset when the source list changes
   useEffect(() => {
@@ -126,16 +128,29 @@ const useProgressiveList = <T,>(items: T[], initial = 12, step = 8) => {
     if (!sentinelRef.current) return;
     if (count >= items.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
+    // Cleanup previous observer
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setCount((c) => Math.min(items.length, c + step));
         }
       });
-    }, { rootMargin: '200px 0px' });
+    }, { 
+      rootMargin: '400px 0px',
+      threshold: 0.1
+    });
 
-    observer.observe(sentinelRef.current);
-    return () => observer.disconnect();
+    observerRef.current.observe(sentinelRef.current);
+    
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, [count, items.length, step]);
 
   return { visible: items.slice(0, count), sentinelRef, hasMore: count < items.length } as const;

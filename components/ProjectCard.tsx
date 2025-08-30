@@ -181,7 +181,8 @@ function ImageWrapper({ src, alt }: { src: string; alt: string }) {
         onError={() => setFallback(true)}
         priority={false}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10" />
+      {/* Subtle dark overlay for better text contrast if needed */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
     </div>
   );
 }

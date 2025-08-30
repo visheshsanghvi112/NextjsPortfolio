@@ -35,7 +35,10 @@ const featuredProjects = [
 
 export default function Projects() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.05),transparent_70%)]" />
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -62,9 +65,8 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -5 }}
-              className={`relative group bg-gradient-to-br from-gray-900/80 to-gray-800/40 backdrop-blur-sm border rounded-2xl p-8 hover:border-gray-600/50 transition-all duration-300 overflow-hidden ${
-                project.featured ? 'border-purple-500/30' : 'border-gray-700/50'
-              }`}
+              className={`relative group bg-gradient-to-br from-gray-900/80 to-gray-800/40 backdrop-blur-sm border rounded-2xl p-8 hover:border-gray-600/50 transition-all duration-300 overflow-hidden ${project.featured ? 'border-purple-500/30' : 'border-gray-700/50'
+                }`}
             >
               {/* Featured Badge */}
               {project.featured && (
@@ -74,27 +76,25 @@ export default function Projects() {
               )}
 
               {/* Status Badge */}
-              <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-sm font-medium ${
-                project.status === 'Live' 
-                  ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                  : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
-              }`}>
-                <div className={`w-2 h-2 rounded-full ${
-                  project.status === 'Live' ? 'bg-green-400 animate-pulse' : 'bg-yellow-400'
-                }`}></div>
+              <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-sm font-medium ${project.status === 'Live'
+                ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                }`}>
+                <div className={`w-2 h-2 rounded-full ${project.status === 'Live' ? 'bg-green-400 animate-pulse' : 'bg-yellow-400'
+                  }`}></div>
                 {project.status}
               </div>
 
               {/* Project Image Placeholder */}
               <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl aspect-video mb-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-gray-600/10"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-5xl mb-3 text-white/20">🚀</div>
-                    <div className="text-white/60 text-lg font-medium">{project.name}</div>
+                    <div className="text-5xl mb-3 text-white/30">💻</div>
+                    <div className="text-white/70 text-lg font-medium">{project.name}</div>
                   </div>
                 </div>
-                
+
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <a
@@ -113,7 +113,7 @@ export default function Projects() {
                 {project.name}
               </h3>
               <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
-              
+
               {/* Tech Stack */}
               <div className="flex flex-wrap gap-3 mb-6">
                 {project.tech.map((tech, index) => (

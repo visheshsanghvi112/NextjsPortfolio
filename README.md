@@ -1,8 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🧠 Mindmap
+
+```mermaid
+mindmap
+	root((Portfolio Project))
+		Features
+			Hero Section
+			Collaboration Bento
+			Projects Showcase
+			Contact & Booking
+			Animated Logo
+		Tech Stack
+			Next.js
+			React
+			TypeScript
+			Tailwind CSS
+			Framer Motion
+			Zustand
+			Prisma
+			Cobe
+		Structure
+			app/
+			components/
+			contexts/
+			lib/
+			public/
+			sections/
+			scripts/
+```
+
+# 🚀 Vishesh Sanghvi Portfolio
+
+This is a modern, feature-rich portfolio built with [Next.js](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/). It showcases projects, skills, and contact options with beautiful UI and interactive components.
+
+## ✨ Features
+
+- Animated hero and background sections
+- Bento grid for collaboration and tech stack
+- Dynamic project showcase
+- Contact form and modal
+- Booking integration (Cal.com)
+- Custom SVG icons and assets
+- Responsive, dark-themed design
+- Context-based modal management
+
+## 🛠️ Tech Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Radix UI & Lucide Icons
+- Zustand, Zod, Prisma
+- Cobe (globe animation)
+
 
 ## Getting Started
 
-First, run the development server:
+
+## 🚦 Getting Started
+
+First, install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +84,33 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+You can start editing the main page by modifying `app/page.tsx`. The app auto-updates as you edit files.
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `app/` — Main app pages and routing
+- `components/` — UI components (animated logo, modals, bento grid, etc.)
+- `contexts/` — React context providers
+- `lib/` — Utility functions and data
+- `public/` — Static assets (SVGs, images, manifest)
+- `sections/` — Page sections (Hero, Projects, Contact, etc.)
+- `scripts/` — Utility scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📬 Contact & Booking
 
-## Deploy on Vercel
+- Use the contact form or modal to reach out
+- Book a call via the booking page (`/book`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🚀 Deploy
+
+Deploy easily on [Vercel](https://vercel.com/) or your preferred platform. See [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for details.
+
+---
+
+Made with ❤️ by Vishesh Sanghvi
