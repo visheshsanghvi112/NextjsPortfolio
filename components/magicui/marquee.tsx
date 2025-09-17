@@ -11,13 +11,13 @@ export function Marquee({ children, pauseOnHover = false, className }: MarqueePr
   return (
     <div
       className={cn(
-        "flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] gpu-accelerated",
         className
       )}
     >
       <div
         className={cn(
-          "flex animate-marquee items-center justify-center whitespace-nowrap",
+          "flex animate-marquee items-center justify-center whitespace-nowrap gpu-accelerated",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
@@ -25,7 +25,7 @@ export function Marquee({ children, pauseOnHover = false, className }: MarqueePr
       </div>
       <div
         className={cn(
-          "flex animate-marquee items-center justify-center whitespace-nowrap",
+          "flex animate-marquee items-center justify-center whitespace-nowrap gpu-accelerated",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
         aria-hidden="true"

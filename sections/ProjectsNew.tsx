@@ -40,7 +40,7 @@ const featuredProjects = [
 
 export default function Projects() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.05),transparent_70%)]" />
@@ -62,7 +62,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {featuredProjects.map((project, i) => (
             <motion.div
               key={project.name}
@@ -70,7 +70,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -5 }}
-              className={`relative group bg-gradient-to-br from-gray-900/80 to-gray-800/40 backdrop-blur-sm border rounded-2xl p-8 hover:border-gray-600/50 transition-all duration-300 overflow-hidden ${project.featured ? 'border-purple-500/30' : 'border-gray-700/50'
+              className={`relative group bg-gradient-to-br from-gray-900/80 to-gray-800/40 backdrop-blur-sm border rounded-2xl p-4 sm:p-6 md:p-8 hover:border-gray-600/50 transition-all duration-300 overflow-hidden ${project.featured ? 'border-purple-500/30' : 'border-gray-700/50'
                 }`}
             >
               {/* Featured Badge */}

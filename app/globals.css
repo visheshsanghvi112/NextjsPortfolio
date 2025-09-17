@@ -33,6 +33,11 @@ body {
   background: radial-gradient(ellipse at 50% 0%, #1a1a2e 0%, #23235b 60%, #2d2d54 100%);
   color: #fff;
   min-height: 100vh;
+  /* Performance optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  will-change: scroll-position;
 }
 
 /* 3D Transform utilities */
@@ -117,4 +122,163 @@ main {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #606060;
+}
+
+/* Performance optimizations for smooth scrolling */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations for better performance */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-marquee,
+  .animate-marquee-vertical,
+  .float-3d {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-vertical,
+  .float-3d {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* GPU acceleration for better performance */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Optimize heavy elements */
+.heavy-animation {
+  contain: layout style paint;
+  will-change: transform, opacity;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  /* Ensure proper touch targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Optimize text sizes for mobile */
+  h1 { font-size: clamp(1.75rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+  h3 { font-size: clamp(1.25rem, 5vw, 2rem); }
+  
+  /* Improve spacing on mobile */
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+  
+  /* Better mobile grid layouts */
+  .mobile-grid-1 { grid-template-columns: 1fr; }
+  .mobile-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .mobile-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  
+  /* Optimize animations for mobile */
+  .reduce-motion {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .tablet-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Improve mobile scrolling */
+@media (max-width: 768px) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Optimize heavy sections for mobile */
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height */
+  }
+  
+  /* Better mobile typography */
+  .mobile-text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+  .mobile-text-base { font-size: 1rem; line-height: 1.5rem; }
+  .mobile-text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+}
+
+/* Safe area insets for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Fix common CSS issues */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fix viewport issues */
+html {
+  height: 100%;
+  height: 100dvh;
+}
+
+/* Improve text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix z-index stacking issues */
+.modal-backdrop {
+  z-index: 9998;
+}
+
+.modal-content {
+  z-index: 9999;
+}
+
+/* Fix button and input focus states */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on UI elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

@@ -54,7 +54,7 @@ export default function Hero() {
         transition={{ delay: 0.3 }}
         className="relative z-10 max-w-4xl mx-auto px-6"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-3 mb-8">
           {/* Frontend Row */}
           <TechBadge icon={<SiReact className="text-[#61DAFB]" />} name="React.JS" />
           <TechBadge icon={<SiNextdotjs className="text-white" />} name="Next.JS" />
@@ -101,10 +101,10 @@ function TechBadge({ icon, name }: { icon: React.ReactNode; name: string }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05, y: -2 }}
-      className="bg-gray-800/50 backdrop-blur border border-gray-700/50 rounded-lg px-3 py-2 text-center hover:bg-gray-700/50 transition-all duration-200 cursor-pointer group"
+      className="bg-gray-800/50 backdrop-blur border border-gray-700/50 rounded-lg px-2 sm:px-3 py-2 sm:py-3 text-center hover:bg-gray-700/50 transition-all duration-200 cursor-pointer group min-h-[70px] sm:min-h-[80px] flex flex-col justify-center"
     >
-      <div className="text-2xl mb-1 group-hover:scale-110 transition-transform">{icon}</div>
-      <div className="text-xs text-gray-300 font-medium">{name}</div>
+      <div className="text-lg sm:text-xl md:text-2xl mb-1 group-hover:scale-110 transition-transform">{icon}</div>
+      <div className="text-xs sm:text-xs text-gray-300 font-medium leading-tight">{name}</div>
     </motion.div>
   );
 }

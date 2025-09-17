@@ -4,9 +4,9 @@ import { FaLinkedinIn, FaGithub, FaTwitter, FaArrowRight } from 'react-icons/fa'
 
 export default function AboutMe() {
   return (
-    <section id="about" className="py-20 px-6">
+    <section id="about" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -18,16 +18,16 @@ export default function AboutMe() {
               KNOW ABOUT ME
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 sm:mb-8">
               <span className="text-white">Full-Stack Developer and</span>
-              <br />
+              <br className="hidden sm:block" />
               <span className="text-white">a little bit of </span>
               <span className="italic bg-gradient-to-r from-[#ff6ec7] via-[#a855f7] to-[#ff8c42] bg-clip-text text-transparent font-serif">
                 everything
               </span>
             </h2>
 
-            <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-8">
+            <div className="space-y-4 sm:space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
               <p>
                 I'm <span className="font-semibold text-white">Vishesh Sanghvi</span>, a proactive full-stack developer passionate 
                 about creating dynamic web experiences. From frontend to 

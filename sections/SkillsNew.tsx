@@ -39,7 +39,7 @@ const toolsSkills = [
 
 export default function Skills() {
   return (
-    <section className="py-16 px-8 max-w-6xl mx-auto">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -54,13 +54,13 @@ export default function Skills() {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {/* Frontend Skills */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-gray-900/30 backdrop-blur border border-gray-800 rounded-2xl p-6"
+          className="bg-gray-900/30 backdrop-blur border border-gray-800 rounded-2xl p-4 sm:p-6"
         >
           <h3 className="text-xl font-semibold mb-6 text-blue-400 flex items-center gap-2">
             <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
@@ -78,7 +78,7 @@ export default function Skills() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-gray-900/30 backdrop-blur border border-gray-800 rounded-2xl p-6"
+          className="bg-gray-900/30 backdrop-blur border border-gray-800 rounded-2xl p-4 sm:p-6"
         >
           <h3 className="text-xl font-semibold mb-6 text-green-400 flex items-center gap-2">
             <div className="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -96,7 +96,7 @@ export default function Skills() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-gray-900/30 backdrop-blur border border-gray-800 rounded-2xl p-6 md:col-span-2 lg:col-span-1"
+          className="bg-gray-900/30 backdrop-blur border border-gray-800 rounded-2xl p-4 sm:p-6 md:col-span-2 lg:col-span-1"
         >
           <h3 className="text-xl font-semibold mb-6 text-purple-400 flex items-center gap-2">
             <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
@@ -115,7 +115,7 @@ export default function Skills() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6"
+        className="mt-8 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
       >
         <div className="text-center bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur border border-gray-700 rounded-xl p-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">5+</div>

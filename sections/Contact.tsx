@@ -119,7 +119,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-20 px-6 min-h-screen bg-black">
+    <section id="contact" className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 min-h-screen bg-black">
       {/* Simple Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900">
         <motion.div 
@@ -156,7 +156,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -164,7 +164,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -5 }}
-            className="bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 hover:bg-gray-900/70 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-1 hover:ring-purple-500/20 transition-all duration-300"
+            className="bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 hover:bg-gray-900/70 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-1 hover:ring-purple-500/20 transition-all duration-300"
           >
             <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
             
@@ -259,7 +259,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -5 }}
-            className="bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 hover:bg-gray-900/70 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-1 hover:ring-purple-500/20 transition-all duration-300"
+            className="bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 hover:bg-gray-900/70 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/20 hover:ring-1 hover:ring-purple-500/20 transition-all duration-300"
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
             <ContactForm />

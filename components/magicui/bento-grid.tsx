@@ -23,7 +23,7 @@ const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+        "grid w-full auto-rows-[18rem] sm:auto-rows-[20rem] md:auto-rows-[22rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4",
         className,
       )}
       {...props}
@@ -56,13 +56,13 @@ const BentoCard = ({
     {...props}
   >
     <div>{background}</div>
-    <div className="p-6">
-      <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-3 transition-all duration-300 lg:group-hover:-translate-y-10">
-        <Icon className="h-8 w-8 origin-left transform-gpu text-white transition-all duration-300 ease-in-out group-hover:scale-75 group-hover:text-blue-400" />
-        <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-all duration-300">
+    <div className="p-4 sm:p-6">
+      <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-2 sm:gap-3 transition-all duration-300 lg:group-hover:-translate-y-10">
+        <Icon className="h-6 w-6 sm:h-8 sm:w-8 origin-left transform-gpu text-white transition-all duration-300 ease-in-out group-hover:scale-75 group-hover:text-blue-400" />
+        <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-blue-400 transition-all duration-300 leading-tight">
           {name}
         </h3>
-        <p className="max-w-lg text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{description}</p>
+        <p className="max-w-lg text-gray-400 text-xs sm:text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{description}</p>
       </div>
 
       <div

@@ -1,5 +1,7 @@
 import LayoutContent from '../components/LayoutContent';
 import { ContactModalProvider } from '../contexts/ContactModalContext';
+import PerformanceMonitor from '../components/PerformanceMonitor';
+import MobileOptimizer from '../components/MobileOptimizer';
 import '../app/globals.css';
 import type { Metadata } from 'next';
 
@@ -81,6 +83,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-black text-white" suppressHydrationWarning>
         <ContactModalProvider>
           <LayoutContent>{children}</LayoutContent>
+          <PerformanceMonitor />
+          <MobileOptimizer />
         </ContactModalProvider>
       </body>
     </html>
