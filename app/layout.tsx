@@ -4,6 +4,7 @@ import PerformanceMonitor from '../components/PerformanceMonitor';
 import MobileOptimizer from '../components/MobileOptimizer';
 import '../app/globals.css';
 import type { Metadata } from 'next';
+import JsonLd from '../components/JsonLd';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://visheshsanghvi.com'),
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <LayoutContent>{children}</LayoutContent>
           <PerformanceMonitor />
           <MobileOptimizer />
+          <JsonLd />
         </ContactModalProvider>
       </body>
     </html>

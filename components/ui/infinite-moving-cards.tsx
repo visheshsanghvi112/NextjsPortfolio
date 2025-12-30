@@ -18,6 +18,7 @@ export const InfiniteMovingCards = ({
         company?: string;
         project?: string;
         rating?: number;
+        title?: string;
         avatar?: string; // eslint-disable-next-line @typescript-eslint/no-explicit-any
         bgColor?: string;
     }[];
