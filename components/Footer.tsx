@@ -1,10 +1,15 @@
 "use client";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(2024);
+  
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-gray-900/50 backdrop-blur border-t border-gray-800 py-12">

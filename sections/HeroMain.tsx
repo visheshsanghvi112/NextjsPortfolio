@@ -1,10 +1,10 @@
 "use client";
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from "framer-motion";
 import { HiMail } from 'react-icons/hi';
 import { useEffect, useState, useMemo } from 'react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import dynamic from 'next/dynamic';
-import { MagicRevealImage } from '../components/MagicRevealImage';
+import { BorderBeam } from "@/components/ui/border-beam";
 
 // Dynamically import 3D starfield to prevent SSR issues
 const Starfield3D = dynamic(() => import('../components/Starfield3D'), {
@@ -29,7 +29,7 @@ function StarField({ count = 100 }: { count?: number }) {
       return {
         id: i,
         left: Math.random() * 100,
-        top: Math.random() * 100,
+        top: Math.random() * 80,
         size: Math.random() * 2.5 + 1,
         opacity: Math.random() * 0.6 + 0.3,
         twinkleDelay: Math.random() * 5,
@@ -41,7 +41,7 @@ function StarField({ count = 100 }: { count?: number }) {
   }, [count]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden -translate-y-6">
       {stars.map((star) => (
         <motion.div
           key={star.id}
@@ -137,7 +137,7 @@ export default function Hero() {
 
       {/* Shooting Stars - More visible and frequent */}
       {mounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none -translate-y-6">
           {[
             { delay: 0, startX: 15, startY: 5, angle: 35 },
             { delay: 2, startX: 45, startY: 8, angle: 40 },
@@ -184,7 +184,7 @@ export default function Hero() {
 
       {/* Planet Horizon - Realistic Earth-from-space look */}
       <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none overflow-hidden">
-        <div className="relative w-full" style={{ height: '400px' }}>
+        <div className="relative w-full" style={{ height: '420px' }}>
 
           {/* Upper atmospheric glow - purple to blue gradient fading up */}
           <div
@@ -207,8 +207,8 @@ export default function Hero() {
           <div
             className="absolute bottom-0 left-1/2"
             style={{
-              width: '250vw',
-              height: '800px',
+              width: '200vw',
+              height: '650px',
               borderRadius: '50% 50% 0 0',
               background: 'linear-gradient(to top, #0a0a10 0%, #0a0a10 92%, transparent 100%)',
               boxShadow: `
@@ -218,7 +218,7 @@ export default function Hero() {
                 0 -15px 80px 0 rgba(140, 120, 200, 0.3),
                 0 -30px 120px 0 rgba(100, 80, 180, 0.2)
               `,
-              transform: 'translateX(-50%) translateY(85%)',
+              transform: 'translateX(-50%) translateY(78%)',
             }}
           />
 
@@ -246,7 +246,7 @@ export default function Hero() {
 
       {/* Subtle ambient particles floating up - colored */}
       {mounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none -translate-y-6">
           {Array.from({ length: 8 }, (_, i) => {
             const particles = [
               { left: 15, bottom: 20, delay: 0, duration: 12, color: 'bg-purple-400/30' },
@@ -285,29 +285,27 @@ export default function Hero() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 md:px-8 pt-16 md:pt-20">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 md:px-8 pt-10 md:pt-14 -translate-y-8 md:-translate-y-10">
         {/* Status notification banner */}
         {/* Status notification banner */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mb-8 md:mb-12 relative inline-block group"
+          className="mb-6 md:mb-8 relative inline-block group"
         >
-          <div className="relative overflow-hidden inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-white/80">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-xs md:text-sm font-medium">Available for new projects</span>
+          <div className="relative overflow-hidden inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2">
+            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+            <span className="text-white font-medium">
+              Available for new projects
+            </span>
 
-            {/* Shimmer effect */}
-            <motion.div
-              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
-              animate={{ translateX: ['100%', '250%'] }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "linear",
-                repeatDelay: 1.5
-              }}
+            {/* Border Beam Effect */}
+            <BorderBeam
+              duration={6}
+              borderWidth={2}
+              colorFrom="#a855f7" // purple-500
+              colorTo="#ec4899"   // pink-500
             />
           </div>
         </motion.div>
@@ -345,10 +343,10 @@ export default function Hero() {
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
-              <MagicRevealImage
+              <img
                 src="/pp.jpg"
                 alt="Vishesh Sanghvi"
-                className="w-full h-full"
+                className="w-full h-full rounded-full object-cover"
               />
             </motion.div>
             <span className="text-base md:text-lg text-gray-400">a Full Stack Developer</span>
@@ -357,16 +355,102 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.button
               onClick={openModal}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full font-medium text-sm md:text-base transition-all duration-300 hover:bg-white/20 hover:border-white/30"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+              }}
+              transition={{ duration: 0.6, delay: 1.2, type: "spring", stiffness: 200 }}
+              whileHover={{ 
+                scale: 1.08, 
+                y: -4,
+                boxShadow: "0 10px 30px rgba(168, 85, 247, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full font-medium text-sm md:text-base transition-all duration-300 hover:bg-white/20 hover:border-white/30 overflow-hidden"
             >
-              <span>Let's Connect</span>
-              <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Animated gradient background */}
+              <motion.div
+                className="absolute inset-0 bg-white/10"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  backgroundSize: "200% 200%",
+                }}
+              />
+              
+              {/* Pulsing glow effect */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-white/10"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.span
+                className="relative z-10"
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.4, duration: 0.5 }}
+              >
+                Let's Connect
+              </motion.span>
+              
+              <motion.span 
+                className="relative z-10 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors"
+                animate={{ 
+                  x: [0, 5, 0],
+                }}
+                transition={{ 
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <motion.svg 
+                  className="w-4 h-4" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  animate={{ 
+                    x: [0, 3, 0],
+                    rotate: [0, 15, 0]
+                  }}
+                  transition={{ 
+                    duration: 1.8,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
+                </motion.svg>
+              </motion.span>
+              
+              {/* Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                animate={{ x: "200%" }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  repeatDelay: 0.5,
+                  ease: "easeInOut"
+                }}
+              />
             </motion.button>
 
             <motion.a

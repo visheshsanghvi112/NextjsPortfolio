@@ -2,6 +2,9 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
+import { World } from "@/components/ui/globe";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { motion } from "framer-motion";
 import {
   Code2,
@@ -168,10 +171,12 @@ const SkeletonThree = () => {
 // SKELETON FOUR - Floating Timezone Clocks (Large Card)
 // ============================================
 const SkeletonFour = () => {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState<Date | null>(null);
   const [activeZone, setActiveZone] = useState(1);
 
   useEffect(() => {
+    // Set initial time on client side only
+    setTime(new Date());
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -190,6 +195,10 @@ const SkeletonFour = () => {
   ];
 
   const getTimeForZone = (offset: number) => {
+    if (!time) {
+      // Return default time during SSR/initial render
+      return { hours: 12, minutes: 0, seconds: 0 };
+    }
     const utc = time.getTime() + time.getTimezoneOffset() * 60000;
     const zoneTime = new Date(utc + 3600000 * offset);
     return {
@@ -497,19 +506,15 @@ const SkeletonSeven = () => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="flex flex-1 w-full h-full min-h-[6rem] flex-col items-center justify-center relative overflow-hidden"
+      className="flex flex-1 w-full h-full min-h-[6rem] flex-col items-center justify-center relative overflow-hidden bg-black group"
     >
-      {/* Animated gradient background */}
-      <motion.div
-        animate={{
-          background: [
-            "linear-gradient(45deg, #8b5cf6, #ec4899)",
-            "linear-gradient(45deg, #ec4899, #06b6d4)",
-            "linear-gradient(45deg, #06b6d4, #8b5cf6)",
-          ],
-        }}
-        transition={{ duration: 5, repeat: Infinity }}
-        className="absolute inset-0 opacity-20"
+      <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+      <DottedGlowBackground
+        color="#525252"
+        glowColor="#d8b4fe"
+        gap={15}
+        speedMin={0.5}
+        speedMax={2}
       />
 
       {/* Content */}
