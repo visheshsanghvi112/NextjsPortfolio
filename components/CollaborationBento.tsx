@@ -3,19 +3,19 @@ import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
-import { World } from "@/components/ui/globe";
+
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { motion } from "framer-motion";
 import {
   Code2,
   Sparkles,
-  Zap,
+
   GitBranch,
-  Database,
+
   Brain,
   Rocket,
   Mail,
-  MapPin,
+
   Terminal,
 } from "lucide-react";
 
@@ -38,6 +38,7 @@ const SkeletonOne = () => {
       setVisibleLines((prev) => (prev < codeLines.length ? prev + 1 : 0));
     }, 800);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -294,7 +295,7 @@ const SkeletonFour = () => {
       {/* Header */}
       <div className="text-center z-10 pt-3 px-4">
         <p className="text-lg font-light italic text-white/90">
-          I'm very flexible with
+          I&apos;m very flexible with
         </p>
         <p className="text-lg font-light italic bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
           time zone communications
@@ -477,6 +478,7 @@ const SkeletonSix = () => {
         });
       }, 50);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -527,7 +529,7 @@ const SkeletonSeven = () => {
             <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">VS</span>
           </div>
         </div>
-        <p className="text-white font-medium">Let's Build Together</p>
+        <p className="text-white font-medium">Let&apos;s Build Together</p>
         <p className="text-gray-400 text-xs mt-1">visheshsanghvi112@gmail.com</p>
 
         <motion.div

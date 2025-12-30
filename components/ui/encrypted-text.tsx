@@ -23,7 +23,7 @@ export const EncryptedText = ({
     const [isScrambling, setIsScrambling] = useState(false);
 
     useEffect(() => {
-        let timer: NodeJS.Timeout;
+
         let scrambleTimer: NodeJS.Timeout;
         let iteration = 0;
 
@@ -52,7 +52,7 @@ export const EncryptedText = ({
             }, interval);
         };
 
-        timer = setTimeout(startScramble, revealDelayMs);
+        const timer = setTimeout(startScramble, revealDelayMs);
 
         return () => {
             clearTimeout(timer);

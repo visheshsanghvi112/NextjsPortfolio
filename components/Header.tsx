@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useContactModal } from '../contexts/ContactModalContext';
-import { 
-  HiHome, 
-  HiUser, 
-  HiCollection, 
-  HiMail, 
+import {
+  HiHome,
+  HiUser,
+  HiCollection,
+  HiMail,
   HiPhone,
   HiSearch,
   HiX
@@ -103,7 +103,7 @@ export default function Header() {
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
                 onClick={() => setOpen(false)}
               />
-              
+
               {/* Command Palette */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: -20 }}
@@ -135,17 +135,15 @@ export default function Header() {
                       <Link
                         href="/"
                         onClick={() => setOpen(false)}
-                        className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${
-                          pathname === '/' 
-                            ? 'bg-white/10 text-white' 
+                        className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${pathname === '/'
+                            ? 'bg-white/10 text-white'
                             : 'text-gray-300 hover:text-white'
-                        }`}
+                          }`}
                       >
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          pathname === '/' 
-                            ? 'bg-blue-500/20 text-blue-400' 
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${pathname === '/'
+                            ? 'bg-blue-500/20 text-blue-400'
                             : 'bg-gray-700/50 text-gray-400 group-hover:bg-blue-500/20 group-hover:text-blue-400'
-                        } transition-all`}>
+                          } transition-all`}>
                           <HiHome className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
@@ -187,17 +185,15 @@ export default function Header() {
                       <Link
                         href="/projects"
                         onClick={() => setOpen(false)}
-                        className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${
-                          pathname.startsWith('/projects') 
-                            ? 'bg-white/10 text-white' 
+                        className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${pathname.startsWith('/projects')
+                            ? 'bg-white/10 text-white'
                             : 'text-gray-300 hover:text-white'
-                        }`}
+                          }`}
                       >
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          pathname.startsWith('/projects') 
-                            ? 'bg-green-500/20 text-green-400' 
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${pathname.startsWith('/projects')
+                            ? 'bg-green-500/20 text-green-400'
                             : 'bg-gray-700/50 text-gray-400 group-hover:bg-green-500/20 group-hover:text-green-400'
-                        } transition-all`}>
+                          } transition-all`}>
                           <HiCollection className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
@@ -248,7 +244,7 @@ export default function Header() {
                         </div>
                         <div className="flex-1">
                           <div className="font-semibold">Book a Call</div>
-                          <div className="text-xs text-purple-200">Let's discuss your project</div>
+                          <div className="text-xs text-purple-200">Let&apos;s discuss your project</div>
                         </div>
                         <div className="text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 rounded-md font-medium">
                           Free

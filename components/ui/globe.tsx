@@ -5,10 +5,12 @@ import { useSpring } from '@react-spring/web';
 
 export const World = ({
     globeConfig,
-    data,
+
 }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     globeConfig: any;
-    data: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data?: any[];
 }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const pointerInteracting = useRef(null);
@@ -23,11 +25,13 @@ export const World = ({
         },
     }));
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updatePointerInteraction = (value: any) => {
         pointerInteracting.current = value;
         canvasRef.current!.style.cursor = value ? "grabbing" : "grab";
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateMovement = (clientX: any) => {
         if (pointerInteracting.current !== null) {
             const delta = clientX - pointerInteracting.current;
@@ -36,6 +40,7 @@ export const World = ({
         }
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     const onRender = (state: any) => {
         if (!pointerInteracting.current) {
             state.phi += 0.005;

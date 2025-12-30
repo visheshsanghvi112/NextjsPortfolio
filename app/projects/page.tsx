@@ -36,6 +36,7 @@ import {
 } from 'react-icons/si';
 
 // Map icons roughly - moved outside but component mapping will be memoized
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const techConfig: Record<string, { color: string; IconComponent: any }> = {
   'Next.js': { IconComponent: SiNextdotjs, color: 'text-white' },
   'React': { IconComponent: SiReact, color: 'text-blue-400' },

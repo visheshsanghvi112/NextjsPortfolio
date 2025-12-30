@@ -1,7 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
-import { cn } from '@/lib/utils';
+
 
 const testimonials = [
   {
@@ -56,7 +56,7 @@ export default function ProjectTestimonials() {
           Kind Words
         </motion.h2>
         <p className="text-neutral-400 max-w-lg mx-auto text-sm md:text-base">
-          Feedback from people I've had the pleasure of working with.
+          Feedback from people I&apos;ve had the pleasure of working with.
         </p>
       </div>
 

@@ -18,7 +18,7 @@ export const InfiniteMovingCards = ({
         company?: string;
         project?: string;
         rating?: number;
-        avatar?: any;
+        avatar?: string; // eslint-disable-next-line @typescript-eslint/no-explicit-any
         bgColor?: string;
     }[];
     direction?: "left" | "right";
@@ -31,6 +31,7 @@ export const InfiniteMovingCards = ({
 
     useEffect(() => {
         addAnimation();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const [start, setStart] = useState(false);
@@ -111,7 +112,7 @@ export const InfiniteMovingCards = ({
                                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
                             ></div>
                             <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
-                                "{item.quote}"
+                                &quot;{item.quote}&quot;
                             </span>
                             <div className="relative z-20 mt-6 flex flex-row items-center">
                                 <span className="flex flex-col gap-1">

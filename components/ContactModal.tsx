@@ -1,16 +1,16 @@
 "use client";
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  HiX, 
-  HiMail, 
+import {
+  HiX,
+  HiMail,
   HiCalendar,
-  HiExternalLink 
+  HiExternalLink
 } from 'react-icons/hi';
-import { 
-  FaLinkedinIn, 
-  FaGithub, 
-  FaTwitter 
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaTwitter
 } from 'react-icons/fa';
 
 interface ContactModalProps {
@@ -51,15 +51,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50"
             onClick={onClose}
           />
-          
+
           {/* Modal */}
           <motion.div
             initial={{ opacity: 0, y: "100vh" }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "100vh" }}
-            transition={{ 
-              type: "spring", 
-              duration: 0.5, 
+            transition={{
+              type: "spring",
+              duration: 0.5,
               bounce: 0.2,
               damping: 25,
               stiffness: 300
@@ -75,17 +75,17 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 >
                   <HiX className="w-5 h-5 text-gray-400" />
                 </button>
-                
+
                 <div className="text-center">
-                  <motion.h2 
+                  <motion.h2
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
                     className="text-2xl font-bold text-white mb-2"
                   >
-                    Let's Connect
+                    Let&apos;s Connect
                   </motion.h2>
-                  <motion.p 
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -96,7 +96,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
 
                 {/* Social Links */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}

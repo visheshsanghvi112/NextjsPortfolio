@@ -1,18 +1,15 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  HiArrowLeft, 
-  HiClock, 
-  HiVideoCamera,
-  HiLocationMarker,
-  HiUser
+import {
+
 } from 'react-icons/hi';
-import Link from 'next/link';
+
 
 // Declare Cal for TypeScript
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Cal: any;
   }
 }
