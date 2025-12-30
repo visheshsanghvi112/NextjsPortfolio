@@ -1,30 +1,98 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Ultra-modern gradient inspired by top tech companies -->
-    <linearGradient id="ultraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4f46e5"/>
-      <stop offset="30%" style="stop-color:#7c3aed"/>
-      <stop offset="70%" style="stop-color:#ec4899"/>
-      <stop offset="100%" style="stop-color:#f97316"/>
+    <!-- Deep cosmic background -->
+    <linearGradient id="cosmicBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a12"/>
+      <stop offset="40%" stop-color="#12121f"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
     </linearGradient>
     
-    <!-- Glass effect -->
-    <linearGradient id="glass" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff" stop-opacity="0.25"/>
-      <stop offset="50%" style="stop-color:#ffffff" stop-opacity="0.1"/>
-      <stop offset="100%" style="stop-color:#ffffff" stop-opacity="0"/>
+    <!-- Premium gradient for letters -->
+    <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6ec7"/>
+      <stop offset="30%" stop-color="#c084fc"/>
+      <stop offset="60%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ff8c42"/>
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Outer purple glow -->
+    <filter id="outerGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feFlood flood-color="#a855f7" flood-opacity="0.35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glass shine -->
+    <linearGradient id="glassShine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
   </defs>
   
-  <!-- Main container with premium gradient -->
-  <rect width="32" height="32" rx="7" fill="url(#ultraGradient)"/>
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="100" fill="url(#cosmicBg)"/>
   
-  <!-- Glass overlay for premium feel -->
-  <rect width="32" height="16" rx="7" fill="url(#glass)"/>
+  <!-- Subtle star accents -->
+  <circle cx="65" cy="85" r="3" fill="#ffffff" opacity="0.5"/>
+  <circle cx="445" cy="65" r="2.5" fill="#c084fc" opacity="0.6"/>
+  <circle cx="460" cy="170" r="2" fill="#ff6ec7" opacity="0.5"/>
+  <circle cx="50" cy="420" r="2.5" fill="#ffffff" opacity="0.4"/>
+  <circle cx="90" cy="455" r="2" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="430" cy="450" r="2.5" fill="#ffffff" opacity="0.5"/>
   
-  <!-- Clean V - centered and properly sized -->
-  <path d="M8 10 L15 22 L17 22 L24 10 L22 10 L16 20 L10 10 Z" fill="white" fill-opacity="0.98"/>
+  <!-- VS Monogram with clear distinct letters -->
+  <g filter="url(#outerGlow)">
+    <!-- V Letter - Bold and clear -->
+    <text 
+      x="70" 
+      y="370" 
+      font-family="Arial Black, Helvetica, sans-serif" 
+      font-size="320" 
+      font-weight="900"
+      fill="url(#letterGradient)"
+      letter-spacing="-20"
+    >V</text>
+    
+    <!-- S Letter - Bold and clear, slightly overlapping -->
+    <text 
+      x="230" 
+      y="370" 
+      font-family="Arial Black, Helvetica, sans-serif" 
+      font-size="320" 
+      font-weight="900"
+      fill="url(#letterGradient)"
+      letter-spacing="-20"
+    >S</text>
+  </g>
   
-  <!-- Subtle highlight accent -->
-  <rect x="2" y="2" width="28" height="1" rx="0.5" fill="white" fill-opacity="0.3"/>
+  <!-- Glass overlay -->
+  <rect width="512" height="220" rx="100" fill="url(#glassShine)"/>
+  
+  <!-- Subtle top highlight -->
+  <rect x="55" y="25" width="400" height="2" rx="1" fill="#ffffff" opacity="0.1"/>
+  
+  <!-- Premium inner border -->
+  <rect 
+    x="10" y="10" 
+    width="492" height="492" 
+    rx="92" 
+    fill="none" 
+    stroke="url(#letterGradient)" 
+    stroke-width="1.5" 
+    opacity="0.2"
+  />
 </svg>

@@ -61,11 +61,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/favicon-512.png', type: 'image/png', sizes: '512x512' },
     ],
     shortcut: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    apple: [],
+    apple: [
+      { url: '/favicon-192.png', sizes: '180x180', type: 'image/png' },
+    ],
     other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#7c3aed' },
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#a855f7' },
     ],
   },
   other: {
@@ -76,7 +80,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
       </head>

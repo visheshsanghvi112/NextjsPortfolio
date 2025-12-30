@@ -4,6 +4,7 @@ import { HiMail } from 'react-icons/hi';
 import { useEffect, useState, useMemo } from 'react';
 import { useContactModal } from '../contexts/ContactModalContext';
 import dynamic from 'next/dynamic';
+import { MagicRevealImage } from '../components/MagicRevealImage';
 
 // Dynamically import 3D starfield to prevent SSR issues
 const Starfield3D = dynamic(() => import('../components/Starfield3D'), {
@@ -82,15 +83,15 @@ export default function Hero() {
       {mounted && <Starfield3D />}
 
       {/* CSS Fallback Background - visible while 3D loads */}
-      <div className="absolute inset-0" style={{ background: '#0a0a12' }}>
-        {/* Base cosmic gradient matching your portfolio */}
+      <div className="absolute inset-0" style={{ background: '#050508' }}>
+        {/* Base cosmic gradient */}
         <div
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 120% 80% at 50% 100%, rgba(26, 26, 46, 0.9) 0%, transparent 60%),
-              radial-gradient(ellipse 80% 60% at 50% 0%, rgba(35, 35, 91, 0.6) 0%, transparent 50%),
-              linear-gradient(180deg, #0a0a12 0%, #12121f 40%, #1a1a2e 100%)
+              radial-gradient(ellipse 120% 80% at 50% 100%, rgba(20, 15, 40, 0.9) 0%, transparent 60%),
+              radial-gradient(ellipse 80% 60% at 50% 0%, rgba(25, 25, 60, 0.5) 0%, transparent 50%),
+              linear-gradient(180deg, #050508 0%, #08080f 40%, #0a0a15 100%)
             `
           }}
         />
@@ -181,60 +182,63 @@ export default function Hero() {
         </div>
       )}
 
-      {/* Planet Horizon with Glow Effect */}
+      {/* Planet Horizon - Realistic Earth-from-space look */}
       <div className="absolute bottom-0 left-0 right-0 w-full pointer-events-none overflow-hidden">
-        {/* Main planet body - curved horizon */}
-        <div
-          className="relative w-full"
-          style={{
-            height: '500px',
-          }}
-        >
-          {/* Outer atmospheric glow - purple tinted */}
+        <div className="relative w-full" style={{ height: '400px' }}>
+
+          {/* Upper atmospheric glow - purple to blue gradient fading up */}
           <div
-            className="absolute bottom-0 left-1/2 w-[200%]"
+            className="absolute bottom-0 left-0 right-0"
             style={{
-              height: '400px',
-              background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(139, 92, 246, 0.12) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%)',
-              transform: 'translateX(-50%)',
+              height: '350px',
+              background: `
+                linear-gradient(to top, 
+                  rgba(120, 80, 200, 0.4) 0%,
+                  rgba(100, 120, 220, 0.25) 20%,
+                  rgba(80, 100, 180, 0.15) 40%,
+                  rgba(60, 80, 150, 0.08) 60%,
+                  transparent 100%
+                )
+              `,
             }}
           />
 
-          {/* Bright rim light - purple/pink gradient glow */}
+          {/* Bright white edge glow - the main rim light */}
           <div
             className="absolute bottom-0 left-1/2"
             style={{
-              width: '200vw',
-              height: '600px',
+              width: '250vw',
+              height: '800px',
               borderRadius: '50% 50% 0 0',
-              background: 'linear-gradient(to top, #1a1a2e 0%, rgba(26, 26, 46, 0.98) 85%, transparent 100%)',
+              background: 'linear-gradient(to top, #0a0a10 0%, #0a0a10 92%, transparent 100%)',
               boxShadow: `
-                0 -4px 120px 15px rgba(139, 92, 246, 0.15),
-                0 -3px 80px 8px rgba(168, 85, 247, 0.12),
-                0 -2px 40px 4px rgba(255, 110, 199, 0.1),
-                0 -1px 10px 2px rgba(255, 255, 255, 0.3),
-                inset 0 3px 40px 0 rgba(139, 92, 246, 0.05)
+                0 -2px 4px 0 rgba(255, 255, 255, 0.9),
+                0 -4px 15px 0 rgba(255, 255, 255, 0.6),
+                0 -8px 40px 0 rgba(200, 220, 255, 0.4),
+                0 -15px 80px 0 rgba(140, 120, 200, 0.3),
+                0 -30px 120px 0 rgba(100, 80, 180, 0.2)
               `,
-              transform: 'translateX(-50%) translateY(75%)',
+              transform: 'translateX(-50%) translateY(85%)',
             }}
           />
 
-          {/* Inner glow accent line - purple/pink gradient */}
-          <motion.div
-            className="absolute bottom-0 left-1/2 w-full"
+          {/* Subtle blue tint on the right side of the horizon */}
+          <div
+            className="absolute bottom-0 right-0"
             style={{
-              height: '3px',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(255, 110, 199, 0.3) 15%, rgba(168, 85, 247, 0.6) 35%, rgba(255, 255, 255, 0.7) 50%, rgba(168, 85, 247, 0.6) 65%, rgba(255, 110, 199, 0.3) 85%, transparent 100%)',
-              filter: 'blur(1px)',
-              transform: 'translateX(-50%) translateY(-140px)',
+              width: '50%',
+              height: '300px',
+              background: 'radial-gradient(ellipse 100% 100% at 100% 100%, rgba(60, 100, 180, 0.15) 0%, transparent 70%)',
             }}
-            animate={{
-              opacity: [0.4, 0.8, 0.4],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
+          />
+
+          {/* Subtle purple tint on the left side */}
+          <div
+            className="absolute bottom-0 left-0"
+            style={{
+              width: '50%',
+              height: '300px',
+              background: 'radial-gradient(ellipse 100% 100% at 0% 100%, rgba(120, 80, 180, 0.12) 0%, transparent 70%)',
             }}
           />
         </div>
@@ -283,15 +287,28 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6 md:px-8 pt-16 md:pt-20">
         {/* Status notification banner */}
+        {/* Status notification banner */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mb-8 md:mb-12"
+          className="mb-8 md:mb-12 relative inline-block group"
         >
-          <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-white/80">
+          <div className="relative overflow-hidden inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-white/80">
             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
             <span className="text-xs md:text-sm font-medium">Available for new projects</span>
+
+            {/* Shimmer effect */}
+            <motion.div
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+              animate={{ translateX: ['100%', '250%'] }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: 1.5
+              }}
+            />
           </div>
         </motion.div>
 
@@ -301,8 +318,18 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight">
-            <span className="block text-white mb-2">
-              I help founders turn ideas
+            <span className="block text-white mb-2 flex flex-wrap justify-center gap-x-3 gap-y-1">
+              {"I help founders turn ideas".split(" ").map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ delay: 0.6 + i * 0.1, duration: 0.6 }}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              ))}
             </span>
             <span className="block italic font-light bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
               into seamless digital experiences
@@ -313,13 +340,17 @@ export default function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 md:mb-12 text-gray-300">
             <span className="text-base md:text-lg">Hello, I'm</span>
             <span className="text-base md:text-lg font-semibold text-white">Vishesh Sanghvi</span>
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-0.5">
-              <img
+            <motion.div
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-0.5"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            >
+              <MagicRevealImage
                 src="/pp.jpg"
                 alt="Vishesh Sanghvi"
-                className="w-full h-full rounded-full object-cover"
+                className="w-full h-full"
               />
-            </div>
+            </motion.div>
             <span className="text-base md:text-lg text-gray-400">a Full Stack Developer</span>
           </div>
 

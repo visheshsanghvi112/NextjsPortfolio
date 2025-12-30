@@ -1,0 +1,53 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Deep cosmic background -->
+    <linearGradient id="cosmicBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a12"/>
+      <stop offset="50%" stop-color="#12121f"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    
+    <!-- Premium gradient -->
+    <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6ec7"/>
+      <stop offset="35%" stop-color="#c084fc"/>
+      <stop offset="65%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ff8c42"/>
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glass shine -->
+    <linearGradient id="glass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#cosmicBg)"/>
+  
+  <!-- VS Letters - Clear and bold -->
+  <g filter="url(#glow)">
+    <text 
+      x="3" 
+      y="24" 
+      font-family="Arial Black, Helvetica, sans-serif" 
+      font-size="20" 
+      font-weight="900"
+      fill="url(#letterGradient)"
+      letter-spacing="-1"
+    >VS</text>
+  </g>
+  
+  <!-- Glass overlay -->
+  <rect width="32" height="14" rx="6" fill="url(#glass)"/>
+</svg>

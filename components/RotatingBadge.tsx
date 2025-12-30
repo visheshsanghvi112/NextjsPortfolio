@@ -8,51 +8,57 @@ interface RotatingBadgeProps {
   className?: string;
 }
 
-export default function RotatingBadge({ 
-  text = "OPEN TO WORK · OPEN TO WORK ·", 
+export default function RotatingBadge({
+  text = "OPEN TO WORK · OPEN TO WORK ·",
   size = 95,
   className = ""
 }: RotatingBadgeProps) {
   const uniqueId = useId();
-  
+
   return (
-    <div className={`relative ${className}`}>
+    <motion.div
+      drag
+      dragMomentum={false}
+      whileDrag={{ scale: 1.1, cursor: 'grabbing' }}
+      whileHover={{ scale: 1.05, cursor: 'grab' }}
+      className={`relative inline-block z-30 cursor-grab ${className}`}
+    >
       {/* Outer rotating container */}
-      <motion.div 
-        className="relative rounded-full bg-gradient-to-r from-purple-600 to-pink-600 p-1.5 leading-none font-medium"
+      <motion.div
+        className="relative rounded-full bg-gradient-to-r from-purple-600 to-pink-600 p-1.5 leading-none font-medium shadow-lg shadow-purple-500/20"
         animate={{ rotate: 360 }}
         transition={{
           duration: 10,
           repeat: Infinity,
           ease: "linear"
         }}
-        style={{ 
-          width: size, 
+        style={{
+          width: size,
           height: size,
           transformOrigin: 'center center'
         }}
       >
         {/* Inner black circle */}
-        <div 
+        <div
           className="relative rounded-full bg-black p-2"
-          style={{ 
-            width: size - 12, 
-            height: size - 12 
+          style={{
+            width: size - 12,
+            height: size - 12
           }}
         >
           {/* Text container */}
-          <div 
+          <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
-            style={{ 
-              width: size - 32, 
-              height: size - 32 
+            style={{
+              width: size - 32,
+              height: size - 32
             }}
           >
-            <svg 
-              className="transform-origin-center-center" 
-              viewBox="0 0 100 100" 
-              overflow="visible" 
-              fill="black" 
+            <svg
+              className="transform-origin-center-center"
+              viewBox="0 0 100 100"
+              overflow="visible"
+              fill="black"
               style={{
                 width: '100%',
                 height: '100%',
@@ -61,17 +67,17 @@ export default function RotatingBadge({
                 transformOrigin: 'center center'
               }}
             >
-              <path 
+              <path
                 id={uniqueId}
-                d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50" 
-                strokeWidth="none" 
+                d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"
+                strokeWidth="none"
                 fill="transparent"
               />
               <text>
-                <textPath 
-                  href={`#${uniqueId}`} 
-                  startOffset="0" 
-                  dominantBaseline="hanging" 
+                <textPath
+                  href={`#${uniqueId}`}
+                  startOffset="0"
+                  dominantBaseline="hanging"
                   style={{
                     fontSize: '13px',
                     fontWeight: 600,
@@ -85,13 +91,13 @@ export default function RotatingBadge({
               </text>
             </svg>
           </div>
-          
+
           {/* Center star icon */}
-          <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg" 
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 fill-white text-white opacity-80"
             style={{ width: '2.5rem', height: '2.5rem' }}
           >
@@ -99,8 +105,8 @@ export default function RotatingBadge({
           </svg>
         </div>
       </motion.div>
-      
+
       <span className="sr-only">{text}</span>
-    </div>
+    </motion.div>
   );
 }

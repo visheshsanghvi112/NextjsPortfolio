@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { FaLinkedinIn, FaGithub, FaTwitter, FaArrowRight } from 'react-icons/fa';
+import { SpotlightReveal } from '../components/SpotlightReveal';
 
 export default function AboutMe() {
   return (
@@ -17,7 +18,7 @@ export default function AboutMe() {
             <div className="text-gray-400 text-sm uppercase tracking-wider mb-4">
               KNOW ABOUT ME
             </div>
-            
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 sm:mb-8">
               <span className="text-white">Full-Stack Developer and</span>
               <br className="hidden sm:block" />
@@ -29,16 +30,16 @@ export default function AboutMe() {
 
             <div className="space-y-4 sm:space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
               <p>
-                I'm <span className="font-semibold text-white">Vishesh Sanghvi</span>, a proactive full-stack developer passionate 
-                about creating dynamic web experiences. From frontend to 
-                backend, I thrive on solving complex problems with clean, 
-                efficient code. My expertise spans React, Next.js, and Node.js, 
+                I'm <span className="font-semibold text-white">Vishesh Sanghvi</span>, a proactive full-stack developer passionate
+                about creating dynamic web experiences. From frontend to
+                backend, I thrive on solving complex problems with clean,
+                efficient code. My expertise spans React, Next.js, and Node.js,
                 and I'm always eager to learn more.
               </p>
 
               <p>
-                When I'm not immersed in work, I'm exploring new ideas and 
-                staying curious. Life's about balance, and I love embracing 
+                When I'm not immersed in work, I'm exploring new ideas and
+                staying curious. Life's about balance, and I love embracing
                 every part of it.
               </p>
 
@@ -58,7 +59,7 @@ export default function AboutMe() {
               >
                 <FaLinkedinIn className="text-[#0077B5] text-lg group-hover:scale-110 transition-transform" />
               </motion.a>
-              
+
               <motion.a
                 href="https://github.com/visheshsanghvi112"
                 target="_blank"
@@ -68,7 +69,7 @@ export default function AboutMe() {
               >
                 <FaGithub className="text-white text-lg group-hover:scale-110 transition-transform" />
               </motion.a>
-              
+
               <motion.a
                 href="https://twitter.com/alexlegend786"
                 target="_blank"
@@ -108,19 +109,23 @@ export default function AboutMe() {
             <div className="relative">
               {/* Blue gradient background */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 rounded-3xl transform rotate-6"></div>
-              
-              {/* Image container */}
-              <motion.div
-                whileHover={{ scale: 1.02, rotate: -2 }}
-                transition={{ duration: 0.3 }}
+
+              {/* Image container with Spotlight Reveal */}
+              <SpotlightReveal
                 className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 rounded-3xl overflow-hidden p-2 transform -rotate-2"
+                spotlightSize={250}
               >
-                <img
-                  src="/pp.jpg"
-                  alt="Vishesh Sanghvi"
-                  className="w-full h-auto rounded-2xl object-cover"
-                />
-              </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.02, rotate: -2 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src="/pp.jpg"
+                    alt="Vishesh Sanghvi"
+                    className="w-full h-auto rounded-2xl object-cover"
+                  />
+                </motion.div>
+              </SpotlightReveal>
             </div>
           </motion.div>
         </div>

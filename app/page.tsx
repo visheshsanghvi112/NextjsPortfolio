@@ -19,7 +19,7 @@ export default function Home() {
       <CollaborationSection />
 
       <AboutSection />
-      <SkillsNew />
+      {/* SkillsNew removed as requested: Technical Expertise section */}
       <ProjectsNew />
       <Contact />
       <FloatingActions />

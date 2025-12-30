@@ -1,273 +1,613 @@
-import { 
-  ChatBubbleIcon,
-  RocketIcon,
-} from "@radix-ui/react-icons";
-import { 
-  Mail, 
-  Clock, 
-  Code2,
-} from "lucide-react";
+"use client";
 import { cn } from "@/lib/utils";
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
-import { Marquee } from "@/components/magicui/marquee";
-import { Globe } from "@/components/magicui/globe";
+import React, { useEffect, useState } from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { motion } from "framer-motion";
+import {
+  Code2,
+  Sparkles,
+  Zap,
+  GitBranch,
+  Database,
+  Brain,
+  Rocket,
+  Mail,
+  MapPin,
+  Terminal,
+} from "lucide-react";
 
-const techStackRow1 = [
-  { name: "React", color: "bg-blue-500", textColor: "text-blue-300", bgClass: "bg-blue-500/10 border-blue-500/30", category: "Frontend" },
-  { name: "Next.js", color: "bg-gray-800", textColor: "text-white", bgClass: "bg-gray-800/50 border-gray-600/30", category: "Framework" },
-  { name: "TypeScript", color: "bg-blue-600", textColor: "text-blue-400", bgClass: "bg-blue-600/10 border-blue-600/30", category: "Language" },
-  { name: "Tailwind CSS", color: "bg-cyan-500", textColor: "text-cyan-300", bgClass: "bg-cyan-500/10 border-cyan-500/30", category: "Styling" },
-  { name: "Framer Motion", color: "bg-purple-500", textColor: "text-purple-300", bgClass: "bg-purple-500/10 border-purple-500/30", category: "Animation" },
-  { name: "Zustand", color: "bg-orange-600", textColor: "text-orange-400", bgClass: "bg-orange-600/10 border-orange-600/30", category: "State" },
-];
+// ============================================
+// SKELETON ONE - Live Code Editor Animation
+// ============================================
+const SkeletonOne = () => {
+  const codeLines = [
+    { text: "const vishesh = {", color: "text-purple-400" },
+    { text: '  role: "Full-Stack Dev",', color: "text-cyan-400" },
+    { text: '  passion: "Building dreams",', color: "text-pink-400" },
+    { text: '  status: "Available ✓"', color: "text-green-400" },
+    { text: "};", color: "text-purple-400" },
+  ];
 
-const techStackRow2 = [
-  { name: "Node.js", color: "bg-green-500", textColor: "text-green-300", bgClass: "bg-green-500/10 border-green-500/30", category: "Backend" },
-  { name: "Express.js", color: "bg-green-600", textColor: "text-green-400", bgClass: "bg-green-600/10 border-green-600/30", category: "API" },
-  { name: "PostgreSQL", color: "bg-blue-700", textColor: "text-blue-300", bgClass: "bg-blue-700/10 border-blue-700/30", category: "Database" },
-  { name: "Prisma", color: "bg-indigo-600", textColor: "text-indigo-400", bgClass: "bg-indigo-600/10 border-indigo-600/30", category: "ORM" },
-  { name: "Supabase", color: "bg-emerald-500", textColor: "text-emerald-300", bgClass: "bg-emerald-500/10 border-emerald-500/30", category: "BaaS" },
-  { name: "MongoDB", color: "bg-green-700", textColor: "text-green-400", bgClass: "bg-green-700/10 border-green-700/30", category: "NoSQL" },
-];
+  const [visibleLines, setVisibleLines] = useState(0);
 
-const techStackRow3 = [
-  { name: "Docker", color: "bg-blue-600", textColor: "text-blue-400", bgClass: "bg-blue-600/10 border-blue-600/30", category: "DevOps" },
-  { name: "AWS", color: "bg-orange-500", textColor: "text-orange-300", bgClass: "bg-orange-500/10 border-orange-500/30", category: "Cloud" },
-  { name: "Vercel", color: "bg-gray-800", textColor: "text-white", bgClass: "bg-gray-800/50 border-gray-600/30", category: "Deploy" },
-  { name: "GitHub", color: "bg-gray-700", textColor: "text-gray-300", bgClass: "bg-gray-700/10 border-gray-700/30", category: "Version Control" },
-  { name: "Figma", color: "bg-pink-500", textColor: "text-pink-300", bgClass: "bg-pink-500/10 border-pink-500/30", category: "Design" },
-  { name: "VS Code", color: "bg-blue-500", textColor: "text-blue-300", bgClass: "bg-blue-500/10 border-blue-500/30", category: "IDE" },
-];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleLines((prev) => (prev < codeLines.length ? prev + 1 : 0));
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
 
-
-
-
-
-const features = [
-  {
-    Icon: ChatBubbleIcon,
-    name: "Partnership-First Approach",
-    description: "I treat every project as a true partnership, ensuring your vision becomes reality through constant collaboration and feedback.",
-    href: "/book",
-    cta: "Schedule a discovery call →",
-    className: "col-span-1 md:col-span-2 lg:col-span-2",
-    background: (
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-        {/* Network Animation */}
-        <div className="absolute inset-0">
-          <div className="absolute top-16 left-20 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-80 animate-pulse">
-            <div className="w-full h-full rounded-full border-2 border-white/20"></div>
-          </div>
-          <div className="absolute top-32 right-24 w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-60 animate-pulse delay-300">
-            <div className="w-full h-full rounded-full border-2 border-white/20"></div>
-          </div>
-          <div className="absolute bottom-24 left-16 w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 opacity-70 animate-pulse delay-700">
-            <div className="w-full h-full rounded-full border-2 border-white/20"></div>
-          </div>
-          <div className="absolute bottom-32 right-20 w-6 h-6 rounded-full bg-gradient-to-r from-orange-500 to-red-500 opacity-50 animate-pulse delay-1000">
-            <div className="w-full h-full rounded-full border-2 border-white/20"></div>
-          </div>
-          {/* Connection Lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-30">
-            <line x1="20%" y1="25%" x2="80%" y2="45%" stroke="url(#gradient1)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse" />
-            <line x1="80%" y1="45%" x2="25%" y2="75%" stroke="url(#gradient2)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse delay-500" />
-            <line x1="25%" y1="75%" x2="85%" y2="80%" stroke="url(#gradient3)" strokeWidth="1" strokeDasharray="5,5" className="animate-pulse delay-1000" />
-            <defs>
-              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#8b5cf6" />
-                <stop offset="100%" stopColor="#ec4899" />
-              </linearGradient>
-              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#06b6d4" />
-              </linearGradient>
-              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#10b981" />
-                <stop offset="100%" stopColor="#f59e0b" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div className="text-center space-y-6 p-8 relative z-10">
-          <div className="space-y-3">
-            <div className="flex items-center justify-center gap-2 text-sm text-blue-300">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-              <span>Daily standups & progress updates</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-sm text-purple-300">
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse delay-300"></div>
-              <span>Slack/Discord for instant communication</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-sm text-pink-300">
-              <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse delay-700"></div>
-              <span>Weekly demos & feedback sessions</span>
-            </div>
-          </div>
-        </div>
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-lg bg-gradient-to-br from-gray-900 via-gray-900 to-purple-900/20 p-4 font-mono text-sm overflow-hidden relative">
+      {/* Terminal header */}
+      <div className="absolute top-2 left-3 flex gap-1.5">
+        <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+        <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
       </div>
-    ),
-  },
-  {
-    Icon: Code2,
-    name: "Modern Tech Stack",
-    description: "I use the latest technologies to build scalable, performant applications that stand the test of time.",
-    href: "#skills",
-    cta: "Explore my toolkit →",
-    className: "col-span-1 md:col-span-1 lg:col-span-1",
-    background: (
-      <div className="absolute inset-0 flex flex-col justify-center overflow-hidden py-4">
-        {/* First row - moving right */}
-        <Marquee
-          pauseOnHover
-          className="mb-2 [--duration:25s]"
+
+      <div className="mt-6 space-y-1">
+        {codeLines.map((line, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: i < visibleLines ? 1 : 0.2, x: 0 }}
+            className={cn("font-mono text-xs", line.color)}
+          >
+            {line.text}
+          </motion.div>
+        ))}
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ duration: 0.5, repeat: Infinity }}
+          className="inline-block w-2 h-4 bg-purple-400 ml-1"
+        />
+      </div>
+    </div>
+  );
+};
+
+// ============================================
+// SKELETON TWO - Tech Stack Orbiting Animation
+// ============================================
+const SkeletonTwo = () => {
+  const techStack = [
+    { name: "React", color: "#61DAFB", angle: 0 },
+    { name: "Next.js", color: "#ffffff", angle: 60 },
+    { name: "TypeScript", color: "#3178C6", angle: 120 },
+    { name: "Python", color: "#3776AB", angle: 180 },
+    { name: "Node.js", color: "#339933", angle: 240 },
+    { name: "TailwindCSS", color: "#06B6D4", angle: 300 },
+  ];
+
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center relative overflow-hidden">
+      {/* Center core */}
+      <motion.div
+        animate={{ scale: [1, 1.1, 1], rotate: 360 }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        className="absolute w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 blur-sm"
+      />
+      <div className="absolute w-10 h-10 rounded-full bg-black flex items-center justify-center z-10">
+        <Code2 className="w-5 h-5 text-white" />
+      </div>
+
+      {/* Orbiting tech icons */}
+      {techStack.map((tech, i) => (
+        <motion.div
+          key={tech.name}
+          className="absolute"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "center" }}
         >
-          {techStackRow1.map((tech, idx) => (
-            <div
-              key={idx}
-              className={cn(
-                "relative mx-2 cursor-pointer overflow-hidden rounded-lg border px-3 py-1.5 whitespace-nowrap",
-                tech.bgClass,
-                "backdrop-blur-sm transform-gpu transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
-              )}
-            >
-              <div className="flex items-center gap-2">
-                <div className={cn("w-1.5 h-1.5 rounded-full", tech.color)} />
-                <span className={cn("text-xs font-medium", tech.textColor)}>{tech.name}</span>
-              </div>
-            </div>
-          ))}
-        </Marquee>
+          <motion.div
+            className="w-6 h-6 rounded-full flex items-center justify-center text-[8px] font-bold border border-white/20"
+            style={{
+              backgroundColor: `${tech.color}20`,
+              color: tech.color,
+              transform: `translateX(${50 + i * 8}px)`,
+            }}
+            whileHover={{ scale: 1.5 }}
+          >
+            {tech.name.slice(0, 2)}
+          </motion.div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
-        {/* Second row - moving left */}
-        <Marquee
-          pauseOnHover
-          className="mb-2 [--duration:30s] [animation-direction:reverse]"
-        >
-          {techStackRow2.map((tech, idx) => (
-            <div
-              key={idx}
-              className={cn(
-                "relative mx-2 cursor-pointer overflow-hidden rounded-lg border px-3 py-1.5 whitespace-nowrap",
-                tech.bgClass,
-                "backdrop-blur-sm transform-gpu transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
-              )}
-            >
-              <div className="flex items-center gap-2">
-                <div className={cn("w-1.5 h-1.5 rounded-full", tech.color)} />
-                <span className={cn("text-xs font-medium", tech.textColor)}>{tech.name}</span>
-              </div>
-            </div>
-          ))}
-        </Marquee>
+// ============================================
+// SKELETON THREE - GitHub Activity Graph
+// ============================================
+const SkeletonThree = () => {
+  const [contributions, setContributions] = useState<number[]>([]);
 
-        {/* Third row - moving right */}
-        <Marquee
-          pauseOnHover
-          className="[--duration:35s]"
-        >
-          {techStackRow3.map((tech, idx) => (
-            <div
-              key={idx}
-              className={cn(
-                "relative mx-2 cursor-pointer overflow-hidden rounded-lg border px-3 py-1.5 whitespace-nowrap",
-                tech.bgClass,
-                "backdrop-blur-sm transform-gpu transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
-              )}
-            >
-              <div className="flex items-center gap-2">
-                <div className={cn("w-1.5 h-1.5 rounded-full", tech.color)} />
-                <span className={cn("text-xs font-medium", tech.textColor)}>{tech.name}</span>
-              </div>
-            </div>
-          ))}
-        </Marquee>
+  useEffect(() => {
+    // Generate random contribution data
+    const data = Array.from({ length: 52 }, () =>
+      Array.from({ length: 7 }, () => Math.floor(Math.random() * 5))
+    ).flat();
+    setContributions(data);
+  }, []);
+
+  const getColor = (level: number) => {
+    const colors = [
+      "bg-gray-800",
+      "bg-purple-900/50",
+      "bg-purple-700/60",
+      "bg-purple-500/70",
+      "bg-purple-400",
+    ];
+    return colors[level] || colors[0];
+  };
+
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] flex-col p-3 overflow-hidden">
+      <div className="flex items-center gap-2 mb-2">
+        <GitBranch className="w-3 h-3 text-green-400" />
+        <span className="text-[10px] text-gray-400">1,247 contributions this year</span>
       </div>
-    ),
-  },
-  {
-    Icon: Clock,
-    name: "Global Availability",
-    description: "Flexible across time zones with overlapping hours for UK, India, USA, and remote teams worldwide.",
-    href: "https://calendly.com/visheshsanghvi",
-    cta: "Book a time slot →",
-    className: "col-span-1 md:col-span-1 lg:col-span-1",
-    background: (
-      <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden p-2 md:p-4">
-        <div className="relative w-full h-full flex flex-col items-center justify-center">
-          <Globe className="opacity-70 scale-50 md:scale-75 mb-2 md:mb-4" />
-          <div className="z-10 space-y-2 md:space-y-3">
-            <div className="grid grid-cols-2 gap-2 md:gap-3">
-              <div className="bg-gradient-to-r from-blue-600/20 to-blue-500/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-blue-400/30 text-center">
-                <div className="text-lg mb-1">🇬🇧</div>
-                <div className="text-xs text-blue-300 font-medium">UK</div>
-                <div className="text-xs text-gray-400">9 AM - 6 PM GMT</div>
-              </div>
-              <div className="bg-gradient-to-r from-orange-600/20 to-orange-500/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-orange-400/30 text-center">
-                <div className="text-lg mb-1">🇮🇳</div>
-                <div className="text-xs text-orange-300 font-medium">India</div>
-                <div className="text-xs text-gray-400">2:30 PM - 11:30 PM IST</div>
-              </div>
-              <div className="bg-gradient-to-r from-red-600/20 to-red-500/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-red-400/30 text-center">
-                <div className="text-lg mb-1">🇺🇸</div>
-                <div className="text-xs text-red-300 font-medium">USA</div>
-                <div className="text-xs text-gray-400">4 AM - 1 PM EST</div>
-              </div>
-              <div className="bg-gradient-to-r from-green-600/20 to-green-500/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-green-400/30 text-center">
-                <div className="text-lg mb-1">🌍</div>
-                <div className="text-xs text-green-300 font-medium">Remote</div>
-                <div className="text-xs text-gray-400">Flexible hours</div>
-              </div>
-            </div>
+      <div className="flex-1 grid grid-cols-[repeat(26,1fr)] gap-[2px]">
+        {contributions.slice(0, 182).map((level, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.005 }}
+            className={cn("aspect-square rounded-[2px]", getColor(level))}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// ============================================
+// SKELETON FOUR - Floating Timezone Clocks (Large Card)
+// ============================================
+const SkeletonFour = () => {
+  const [time, setTime] = useState(new Date());
+  const [activeZone, setActiveZone] = useState(1);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveZone((prev) => (prev + 1) % 3);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const zones = [
+    { code: "🇬🇧", name: "London", offset: 0, color: "from-blue-500 to-cyan-500" },
+    { code: "🇮🇳", name: "Mumbai", offset: 5.5, color: "from-orange-500 to-pink-500" },
+    { code: "🇺🇸", name: "New York", offset: -5, color: "from-purple-500 to-indigo-500" },
+  ];
+
+  const getTimeForZone = (offset: number) => {
+    const utc = time.getTime() + time.getTimezoneOffset() * 60000;
+    const zoneTime = new Date(utc + 3600000 * offset);
+    return {
+      hours: zoneTime.getHours(),
+      minutes: zoneTime.getMinutes(),
+      seconds: zoneTime.getSeconds(),
+    };
+  };
+
+  const Clock = ({ zone, index }: { zone: typeof zones[0]; index: number }) => {
+    const { hours, minutes, seconds } = getTimeForZone(zone.offset);
+    const isActive = index === activeZone;
+
+    return (
+      <motion.div
+        animate={{
+          scale: isActive ? 1.15 : 1,
+          y: isActive ? -5 : 0,
+        }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col items-center"
+      >
+        {/* Clock face */}
+        <motion.div
+          className={cn(
+            "relative w-16 h-16 rounded-full border-2 flex items-center justify-center",
+            isActive ? "border-cyan-400/60" : "border-gray-600/40",
+            "bg-gradient-to-br from-gray-900 to-gray-800"
+          )}
+          animate={{ boxShadow: isActive ? "0 0 20px rgba(6, 182, 212, 0.3)" : "none" }}
+        >
+          {/* Hour markers */}
+          {[0, 3, 6, 9].map((h) => (
+            <div
+              key={h}
+              className="absolute w-1 h-1 rounded-full bg-gray-500"
+              style={{
+                transform: `rotate(${h * 30}deg) translateY(-24px)`,
+              }}
+            />
+          ))}
+
+          {/* Hour hand */}
+          <motion.div
+            suppressHydrationWarning
+            className={cn("absolute w-1 h-4 rounded-full origin-bottom", isActive ? "bg-cyan-400" : "bg-gray-400")}
+            style={{
+              transform: `rotate(${(hours % 12) * 30 + minutes * 0.5}deg)`,
+              bottom: "50%",
+            }}
+          />
+
+          {/* Minute hand */}
+          <motion.div
+            suppressHydrationWarning
+            className={cn("absolute w-0.5 h-5 rounded-full origin-bottom", isActive ? "bg-purple-400" : "bg-gray-500")}
+            style={{
+              transform: `rotate(${minutes * 6}deg)`,
+              bottom: "50%",
+            }}
+          />
+
+          {/* Second hand */}
+          <motion.div
+            suppressHydrationWarning
+            className="absolute w-[1px] h-6 bg-red-500 rounded-full origin-bottom"
+            style={{
+              transform: `rotate(${seconds * 6}deg)`,
+              bottom: "50%",
+            }}
+          />
+
+          {/* Center dot */}
+          <div className={cn("absolute w-2 h-2 rounded-full", isActive ? "bg-cyan-400" : "bg-gray-400")} />
+        </motion.div>
+
+        {/* Label */}
+        <div className="mt-2 text-center">
+          <div className="text-lg">{zone.code}</div>
+          <div className={cn("text-[10px] font-medium", isActive ? "text-cyan-400" : "text-gray-400")}>
+            {zone.name}
+          </div>
+          <div className="text-[10px] text-gray-500">
+            {String(hours).padStart(2, "0")}:{String(minutes).padStart(2, "0")}
           </div>
         </div>
+      </motion.div>
+    );
+  };
+
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] flex-col relative overflow-hidden">
+      {/* Header */}
+      <div className="text-center z-10 pt-3 px-4">
+        <p className="text-lg font-light italic text-white/90">
+          I'm very flexible with
+        </p>
+        <p className="text-lg font-light italic bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          time zone communications
+        </p>
       </div>
-    ),
-  },
-  {
-    Icon: Mail,
-    name: "Ready to Start Your Project?",
-    description: "Let's discuss your vision and turn it into reality. I'm excited to hear about your next big idea.",
-    href: "mailto:visheshsanghvi112@gmail.com",
-    cta: "Get in touch →",
-    className: "col-span-1 md:col-span-2 lg:col-span-2",
-    background: (
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center space-y-8">
-          <div className="relative">
-            <div className="text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              VS
-            </div>
-            <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
+
+      {/* Clocks Container */}
+      <div className="flex-1 flex items-center justify-center gap-6 md:gap-10 px-4 relative">
+        {/* Connection lines */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+          <motion.line
+            x1="25%" y1="50%" x2="50%" y2="50%"
+            stroke="url(#lineGradient)"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            animate={{ opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <motion.line
+            x1="50%" y1="50%" x2="75%" y2="50%"
+            stroke="url(#lineGradient)"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            animate={{ opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          />
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Clocks */}
+        {zones.map((zone, i) => (
+          <Clock key={zone.name} zone={zone} index={i} />
+        ))}
+      </div>
+
+      {/* Active indicator */}
+      <motion.div
+        key={activeZone}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2"
+      >
+        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+        <span className="text-[10px] text-gray-400">
+          Available in {zones[activeZone].name}
+        </span>
+      </motion.div>
+    </div>
+  );
+};
+
+// ============================================
+// SKELETON FIVE - AI/ML Neural Network
+// ============================================
+const SkeletonFive = () => {
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center relative overflow-hidden">
+      {/* Neural network nodes */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 120">
+        {/* Connection lines */}
+        {[0, 1, 2].map((i) =>
+          [0, 1, 2, 3].map((j) => (
+            <motion.line
+              key={`${i}-${j}`}
+              x1={30}
+              y1={30 + i * 30}
+              x2={100}
+              y2={15 + j * 30}
+              stroke="url(#gradient)"
+              strokeWidth="0.5"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1, opacity: [0.2, 0.6, 0.2] }}
+              transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+            />
+          ))
+        )}
+        {[0, 1, 2, 3].map((i) =>
+          [0, 1, 2].map((j) => (
+            <motion.line
+              key={`h-${i}-${j}`}
+              x1={100}
+              y1={15 + i * 30}
+              x2={170}
+              y2={30 + j * 30}
+              stroke="url(#gradient)"
+              strokeWidth="0.5"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1, opacity: [0.2, 0.6, 0.2] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.5 + i * 0.2 }}
+            />
+          ))
+        )}
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#8b5cf6" />
+            <stop offset="100%" stopColor="#ec4899" />
+          </linearGradient>
+        </defs>
+
+        {/* Input nodes */}
+        {[0, 1, 2].map((i) => (
+          <motion.circle
+            key={`in-${i}`}
+            cx={30}
+            cy={30 + i * 30}
+            r={6}
+            fill="#8b5cf6"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+          />
+        ))}
+
+        {/* Hidden layer nodes */}
+        {[0, 1, 2, 3].map((i) => (
+          <motion.circle
+            key={`h-${i}`}
+            cx={100}
+            cy={15 + i * 30}
+            r={5}
+            fill="#ec4899"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 + i * 0.15 }}
+          />
+        ))}
+
+        {/* Output nodes */}
+        {[0, 1, 2].map((i) => (
+          <motion.circle
+            key={`out-${i}`}
+            cx={170}
+            cy={30 + i * 30}
+            r={6}
+            fill="#06b6d4"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, delay: 1 + i * 0.2 }}
+          />
+        ))}
+      </svg>
+
+      {/* Label */}
+      <div className="absolute bottom-2 left-3 text-[10px] text-gray-400 flex items-center gap-1">
+        <Brain className="w-3 h-3 text-purple-400" />
+        <span>Neural Network</span>
+      </div>
+    </div>
+  );
+};
+
+// ============================================
+// SKELETON SIX - Stats Counter
+// ============================================
+const SkeletonSix = () => {
+  const stats = [
+    { label: "Projects", value: 50, suffix: "+", color: "from-purple-500 to-pink-500" },
+    { label: "Clients", value: 30, suffix: "+", color: "from-cyan-500 to-blue-500" },
+    { label: "Years", value: 5, suffix: "+", color: "from-green-500 to-emerald-500" },
+  ];
+
+  const [counts, setCounts] = useState(stats.map(() => 0));
+
+  useEffect(() => {
+    stats.forEach((stat, i) => {
+      let current = 0;
+      const increment = stat.value / 30;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= stat.value) {
+          current = stat.value;
+          clearInterval(timer);
+        }
+        setCounts((prev) => {
+          const next = [...prev];
+          next[i] = Math.floor(current);
+          return next;
+        });
+      }, 50);
+    });
+  }, []);
+
+  return (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] items-center justify-center gap-4">
+      {stats.map((stat, i) => (
+        <motion.div
+          key={stat.label}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.2 }}
+          className="text-center"
+        >
+          <div className={cn("text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent", stat.color)}>
+            {counts[i]}{stat.suffix}
           </div>
-          
-          <div className="space-y-3">
-            <div className="text-xl font-bold text-white">Ready to bring your vision to life?</div>
-            <div className="text-lg text-gray-300">Let's create something extraordinary together</div>
-          </div>
-          
-          <div className="space-y-4">
-            <div className="bg-gradient-to-r from-gray-800/80 to-gray-700/80 backdrop-blur-sm rounded-xl px-6 py-4 border border-gray-600/50">
-              <div className="text-sm text-gray-400 mb-1">Email me directly</div>
-              <div className="text-base text-white font-medium">visheshsanghvi112@gmail.com</div>
-            </div>
-            
-            <div className="flex gap-3 justify-center">
-              <div className="bg-green-600/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-green-500/30">
-                <div className="text-xs text-green-300">Usually responds within 2 hours</div>
-              </div>
-            </div>
+          <div className="text-[10px] text-gray-400 mt-1">{stat.label}</div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+// ============================================
+// SKELETON SEVEN - Quick Connect CTA
+// ============================================
+const SkeletonSeven = () => {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      className="flex flex-1 w-full h-full min-h-[6rem] flex-col items-center justify-center relative overflow-hidden"
+    >
+      {/* Animated gradient background */}
+      <motion.div
+        animate={{
+          background: [
+            "linear-gradient(45deg, #8b5cf6, #ec4899)",
+            "linear-gradient(45deg, #ec4899, #06b6d4)",
+            "linear-gradient(45deg, #06b6d4, #8b5cf6)",
+          ],
+        }}
+        transition={{ duration: 5, repeat: Infinity }}
+        className="absolute inset-0 opacity-20"
+      />
+
+      {/* Content */}
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="relative z-10 text-center"
+      >
+        <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 p-[2px] mx-auto mb-3">
+          <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+            <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">VS</span>
           </div>
         </div>
-      </div>
-    ),
+        <p className="text-white font-medium">Let's Build Together</p>
+        <p className="text-gray-400 text-xs mt-1">visheshsanghvi112@gmail.com</p>
+
+        <motion.div
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="mt-3 flex items-center justify-center gap-2 text-green-400 text-xs"
+        >
+          <span className="w-2 h-2 rounded-full bg-green-400" />
+          Available for new projects
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// ============================================
+// ITEMS CONFIGURATION
+// ============================================
+const items = [
+  {
+    title: "Who I Am",
+    description: "Full-stack developer crafting digital experiences with clean code and creative solutions.",
+    header: <SkeletonOne />,
+    className: "md:col-span-1",
+    icon: <Terminal className="h-4 w-4 text-purple-400" />,
+  },
+  {
+    title: "Tech Arsenal",
+    description: "Mastery across the modern development ecosystem.",
+    header: <SkeletonTwo />,
+    className: "md:col-span-1",
+    icon: <Code2 className="h-4 w-4 text-cyan-400" />,
+  },
+  {
+    title: "Contribution Graph",
+    description: "Consistently shipping quality code, every single day.",
+    header: <SkeletonThree />,
+    className: "md:col-span-1",
+    icon: <GitBranch className="h-4 w-4 text-green-400" />,
+  },
+  {
+    title: "Global Availability",
+    description: "Ready to collaborate across any timezone.",
+    header: <SkeletonFour />,
+    className: "md:col-span-2",
+    icon: <Sparkles className="h-4 w-4 text-cyan-400" />,
+  },
+  {
+    title: "ML & AI Explorer",
+    description: "Building intelligent systems with neural networks.",
+    header: <SkeletonFive />,
+    className: "md:col-span-1",
+    icon: <Brain className="h-4 w-4 text-pink-400" />,
+  },
+  {
+    title: "Track Record",
+    description: "Years of delivering excellence.",
+    header: <SkeletonSix />,
+    className: "md:col-span-1",
+    icon: <Rocket className="h-4 w-4 text-orange-400" />,
+  },
+  {
+    title: "Ready to Start?",
+    description: "Let's create something extraordinary.",
+    header: <SkeletonSeven />,
+    className: "md:col-span-2",
+    icon: <Mail className="h-4 w-4 text-purple-400" />,
   },
 ];
 
+// ============================================
+// MAIN EXPORT
+// ============================================
 export function CollaborationBento() {
   return (
-    <BentoGrid>
-      {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
+    <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[22rem]">
+      {items.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          header={item.header}
+          className={cn(item.className)}
+          icon={item.icon}
+        />
       ))}
     </BentoGrid>
   );

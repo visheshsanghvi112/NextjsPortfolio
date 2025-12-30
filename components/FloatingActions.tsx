@@ -31,13 +31,28 @@ export default function FloatingActions() {
     <div className="fixed bottom-6 sm:bottom-8 right-4 sm:right-8 z-50 flex flex-col gap-3 sm:gap-4 pointer-events-none">
       {/* Chat/Contact Button */}
       <motion.button
-        className="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+        className="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group relative overflow-hidden"
         whileHover={{ scale: 1.1, rotate: 5 }}
         whileTap={{ scale: 0.9 }}
+        animate={{
+          boxShadow: ["0 4px 6px -1px rgba(0, 0, 0, 0.1)", "0 0 15px rgba(139, 92, 246, 0.5)", "0 4px 6px -1px rgba(0, 0, 0, 0.1)"]
+        }}
+        transition={{
+          boxShadow: {
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }
+        }}
         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-  title="Let&apos;s Chat"
+        title="Let's Chat"
       >
-        <HiChatAlt2 className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform" />
+        <motion.div
+          className="absolute inset-0 bg-white/20"
+          animate={{ scale: [0, 1.5], opacity: [0.5, 0] }}
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+        />
+        <HiChatAlt2 className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform relative z-10" />
         <div className="hidden sm:block absolute -left-20 top-1/2 -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
           Let&apos;s Chat
         </div>
