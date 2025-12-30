@@ -24,8 +24,9 @@ export const SparklesCore = ({
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
+        const canvasEl = canvasRef.current;
+        if (!canvasEl) return;
+        const canvas: HTMLCanvasElement = canvasEl;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
@@ -90,7 +91,7 @@ export const SparklesCore = ({
         };
 
         const animate = () => {
-            if (!ctx || !canvas) return;
+            if (!ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach((particle) => {
                 particle.update();

@@ -5,9 +5,10 @@ import { useState, useRef, MouseEvent, useEffect } from "react";
 interface SpotlightRevealProps {
     children: React.ReactNode;
     className?: string;
+    spotlightSize?: number;
 }
 
-export function SpotlightReveal({ children, className = "" }: SpotlightRevealProps) {
+export function SpotlightReveal({ children, className = "", spotlightSize = 600 }: SpotlightRevealProps) {
     const [isHovering, setIsHovering] = useState(false);
     const [revealProgress, setRevealProgress] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -31,7 +32,7 @@ export function SpotlightReveal({ children, className = "" }: SpotlightRevealPro
     };
 
     // Huge spotlight that follows cursor
-    const maskImage = useMotionTemplate`radial-gradient(600px circle at ${smoothX}px ${smoothY}px, black, transparent)`;
+    const maskImage = useMotionTemplate`radial-gradient(${spotlightSize}px circle at ${smoothX}px ${smoothY}px, black, transparent)`;
 
     // Reset reveal on mouse leave
     const handleMouseLeave = () => {

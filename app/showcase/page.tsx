@@ -10,7 +10,7 @@ export default function ShowcasePage() {
     );
 }
 
-export const products = [
+const products = [
     {
         title: "Moonbeam",
         link: "https://gomoonbeam.com",

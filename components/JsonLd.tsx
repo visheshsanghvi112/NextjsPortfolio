@@ -1,5 +1,3 @@
-import { Project } from '@/lib/projectsData';
-
 export function generatePersonSchema() {
     return {
         '@context': 'https://schema.org',
