@@ -112,8 +112,8 @@ export default function AboutMe() {
 
               {/* Image container with Spotlight Reveal */}
               <SpotlightReveal
-                className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 rounded-3xl overflow-hidden p-2 transform -rotate-2"
-                spotlightSize={250}
+                className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 rounded-3xl overflow-hidden p-2 transform -rotate-2 touch-none"
+                spotlightSize={300}
               >
                 <motion.div
                   whileHover={{ scale: 1.02, rotate: -2 }}

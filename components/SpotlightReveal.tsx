@@ -16,17 +16,33 @@ export function SpotlightReveal({ children, className = "", spotlightSize = 600 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Smooth spring animation for cursor
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+    useEffect(() => {
+        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    }, []);
+
     const smoothX = useSpring(mouseX, { stiffness: 100, damping: 20 });
     const smoothY = useSpring(mouseY, { stiffness: 100, damping: 20 });
 
-    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const handleMouseMove = (e: MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
         if (!containerRef.current) return;
         const rect = containerRef.current.getBoundingClientRect();
-        mouseX.set(e.clientX - rect.left);
-        mouseY.set(e.clientY - rect.top);
 
-        // Calculate reveal progress based on mouse movement
+        // Handle both mouse and touch events
+        let clientX, clientY;
+        if ('touches' in e) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = (e as MouseEvent).clientX;
+            clientY = (e as MouseEvent).clientY;
+        }
+
+        mouseX.set(clientX - rect.left);
+        mouseY.set(clientY - rect.top);
+
+        // Calculate reveal progress based on movement
         const progress = Math.min(revealProgress + 0.08, 1);
         setRevealProgress(progress);
     };
@@ -57,6 +73,9 @@ export function SpotlightReveal({ children, className = "", spotlightSize = 600 
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={handleMouseLeave}
+            onTouchMove={handleMouseMove}
+            onTouchStart={() => setIsHovering(true)}
+            onTouchEnd={handleMouseLeave}
         >
             {/* Blurred/dark overlay */}
             <div className="relative">
@@ -82,8 +101,8 @@ export function SpotlightReveal({ children, className = "", spotlightSize = 600 
                 {children}
             </motion.div>
 
-            {/* Big Magic Wand Cursor */}
-            {isHovering && (
+            {/* Big Magic Wand Cursor - Hide on Touch Devices */}
+            {isHovering && !isTouchDevice && (
                 <motion.div
                     className="fixed pointer-events-none z-50"
                     style={{
