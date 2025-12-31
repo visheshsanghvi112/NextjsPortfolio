@@ -19,14 +19,6 @@ export default function FloatingActions() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const downloadResume = () => {
-    // This would normally download a real resume
-    const link = document.createElement('a');
-    link.href = '/resume-vishesh-sanghvi.pdf';
-    link.download = 'Vishesh_Sanghvi_Resume.pdf';
-    link.click();
-  };
-
   return (
     <div className="fixed bottom-6 sm:bottom-8 right-4 sm:right-8 z-50 flex flex-col gap-3 sm:gap-4 pointer-events-none">
       {/* Chat/Contact Button */}
@@ -59,18 +51,19 @@ export default function FloatingActions() {
       </motion.button>
 
       {/* Download Resume Button */}
-      <motion.button
+      <motion.a
         className="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
         whileHover={{ scale: 1.1, rotate: -5 }}
         whileTap={{ scale: 0.9 }}
-        onClick={downloadResume}
+        href="/resume1.pdf"
+        download="Vishesh_Sanghvi_Resume.pdf"
         title="Download Resume"
       >
         <HiDownload className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform" />
         <div className="hidden sm:block absolute -left-24 top-1/2 -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
           Download CV
         </div>
-      </motion.button>
+      </motion.a>
 
       {/* Scroll to Top Button */}
       <AnimatePresence>
