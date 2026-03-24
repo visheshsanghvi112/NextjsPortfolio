@@ -1,5 +1,6 @@
 import LayoutContent from '../components/LayoutContent';
 import { ContactModalProvider } from '../contexts/ContactModalContext';
+import { ThemeProvider } from '../contexts/ThemeContext';
 import PerformanceMonitor from '../components/PerformanceMonitor';
 import MobileOptimizer from '../components/MobileOptimizer';
 import '../app/globals.css';
@@ -86,12 +87,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.webmanifest" />
       </head>
       <body className="bg-black text-white" suppressHydrationWarning>
-        <ContactModalProvider>
-          <LayoutContent>{children}</LayoutContent>
-          <PerformanceMonitor />
-          <MobileOptimizer />
-          <JsonLd />
-        </ContactModalProvider>
+        <ThemeProvider>
+          <ContactModalProvider>
+            <LayoutContent>{children}</LayoutContent>
+            <PerformanceMonitor />
+            <MobileOptimizer />
+            <JsonLd />
+          </ContactModalProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

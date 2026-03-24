@@ -9,15 +9,19 @@ export default function CollaborationSection() {
       {/* Premium dark background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-950" />
 
-      {/* Aceternity-style background beams */}
-      <BackgroundBeams className="opacity-40" />
+      {/* Aceternity-style background beams - hidden on mobile for performance */}
+      <div className="hidden md:block">
+        <BackgroundBeams className="opacity-40" />
+      </div>
 
-      {/* Sparkles overlay */}
-      <SparklesCore
-        className="opacity-30"
-        particleCount={40}
-        particleColor="rgba(139, 92, 246, 0.5)"
-      />
+      {/* Sparkles overlay - hidden on mobile for performance */}
+      <div className="hidden md:block">
+        <SparklesCore
+          className="opacity-30"
+          particleCount={40}
+          particleColor="rgba(139, 92, 246, 0.5)"
+        />
+      </div>
 
       {/* Subtle grain texture */}
       <div className="absolute inset-0 opacity-[0.015]" style={{
@@ -25,8 +29,8 @@ export default function CollaborationSection() {
         backgroundSize: '24px 24px'
       }} />
 
-      {/* Floating gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Floating gradient orbs - hidden on mobile for performance */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"
           animate={{

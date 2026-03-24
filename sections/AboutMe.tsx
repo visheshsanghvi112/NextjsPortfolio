@@ -15,22 +15,22 @@ export default function AboutMe() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-gray-400 text-sm uppercase tracking-wider mb-4">
+            <div className="text-sm uppercase tracking-wider mb-4" style={{ color: 'var(--text-tertiary)' }}>
               KNOW ABOUT ME
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 sm:mb-8">
-              <span className="text-white">Full-Stack Developer and</span>
+              <span style={{ color: 'var(--text-primary)' }}>Full-Stack Developer and</span>
               <br className="hidden sm:block" />
-              <span className="text-white">a little bit of </span>
+              <span style={{ color: 'var(--text-primary)' }}>a little bit of </span>
               <span className="italic bg-gradient-to-r from-[#ff6ec7] via-[#a855f7] to-[#ff8c42] bg-clip-text text-transparent font-serif">
                 everything
               </span>
             </h2>
 
-            <div className="space-y-4 sm:space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8" style={{ color: 'var(--text-secondary)' }}>
               <p>
-                I'm <span className="font-semibold text-white">Vishesh Sanghvi</span>, a proactive full-stack developer passionate
+                I'm <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Vishesh Sanghvi</span>, a proactive full-stack developer passionate
                 about creating dynamic web experiences. From frontend to
                 backend, I thrive on solving complex problems with clean,
                 efficient code. My expertise spans React, Next.js, and Node.js,
@@ -43,7 +43,7 @@ export default function AboutMe() {
                 every part of it.
               </p>
 
-              <p className="font-medium text-white">
+              <p className="font-medium" style={{ color: 'var(--text-primary)' }}>
                 I believe in waking up each day eager to make a difference!
               </p>
             </div>
@@ -65,9 +65,13 @@ export default function AboutMe() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
-                className="w-12 h-12 bg-gray-800/50 border border-gray-700 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-all group"
+                className="w-12 h-12 border rounded-lg flex items-center justify-center transition-all group"
+                style={{
+                  backgroundColor: 'var(--hover-bg)',
+                  borderColor: 'var(--border-color)'
+                }}
               >
-                <FaGithub className="text-white text-lg group-hover:scale-110 transition-transform" />
+                <FaGithub className="text-lg group-hover:scale-110 transition-transform" style={{ color: 'var(--text-primary)' }} />
               </motion.a>
 
               <motion.a
@@ -85,7 +89,8 @@ export default function AboutMe() {
             <motion.button
               whileHover={{ scale: 1.05, x: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 text-white font-medium text-lg hover:text-gray-300 transition-all group"
+              className="flex items-center gap-3 font-medium text-lg transition-all group"
+              style={{ color: 'var(--text-primary)' }}
             >
               <span>Work Experience</span>
               <motion.div

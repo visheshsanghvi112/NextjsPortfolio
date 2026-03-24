@@ -14,13 +14,17 @@ export default function Home() {
     <main className="min-h-screen text-white">
       {/* Header and Footer are rendered by RootLayout */}
       <HeroMain />
-      <HeroNew />
+      <div className="hidden md:block">
+        <HeroNew />
+      </div>
       <AboutMe />
       <CollaborationSection />
 
       <AboutSection />
       {/* SkillsNew removed as requested: Technical Expertise section */}
-      <ProjectsNew />
+      <div className="hidden md:block">
+        <ProjectsNew />
+      </div>
       <Contact />
       <FloatingActions />
     </main>

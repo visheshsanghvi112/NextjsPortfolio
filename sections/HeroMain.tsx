@@ -79,10 +79,14 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* 3D Starfield Background - renders on client only */}
-      {mounted && <Starfield3D />}
+      {/* 3D Starfield Background - hidden on mobile for performance */}
+      {mounted && (
+        <div className="hidden md:block absolute inset-0">
+          <Starfield3D />
+        </div>
+      )}
 
-      {/* CSS Fallback Background - visible while 3D loads */}
+      {/* Fallback & Base Atmosphere - visible on all devices */}
       <div className="absolute inset-0" style={{ background: '#050508' }}>
         {/* Base cosmic gradient */}
         <div
@@ -132,12 +136,16 @@ export default function Hero() {
         />
       </div>
 
-      {/* Star Field - Only render after mount */}
-      {mounted && <StarField count={120} />}
-
-      {/* Shooting Stars - More visible and frequent */}
+      {/* Star Field - hidden on mobile for performance */}
       {mounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none -translate-y-6">
+        <div className="hidden md:block">
+          <StarField count={120} />
+        </div>
+      )}
+
+      {/* Shooting Stars - hidden on mobile for performance */}
+      {mounted && (
+        <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none -translate-y-6">
           {[
             { delay: 0, startX: 15, startY: 5, angle: 35 },
             { delay: 2, startX: 45, startY: 8, angle: 40 },

@@ -168,16 +168,16 @@ function Scene() {
             {/* Mouse parallax camera controller */}
             <CameraController />
 
-            {/* Flying stars - creates warp speed effect - BRIGHTER WHITE */}
-            <FlyingStars count={1200} speed={12} size={0.15} color="#ffffff" depth={80} radius={25} />
-            <FlyingStars count={800} speed={20} size={0.2} color="#ffffff" depth={100} radius={30} />
-            <FlyingStars count={500} speed={30} size={0.25} color="#e0e0ff" depth={120} radius={35} />
-            <FlyingStars count={200} speed={45} size={0.35} color="#ffffff" depth={150} radius={40} />
+            {/* Flying stars - reduced count for performance */}
+            <FlyingStars count={300} speed={12} size={0.15} color="#ffffff" depth={80} radius={25} />
+            <FlyingStars count={200} speed={20} size={0.2} color="#ffffff" depth={100} radius={30} />
+            <FlyingStars count={150} speed={30} size={0.25} color="#e0e0ff" depth={120} radius={35} />
+            <FlyingStars count={100} speed={45} size={0.35} color="#ffffff" depth={150} radius={40} />
 
-            {/* Ambient rotating stars for background depth - MORE WHITE */}
-            <AmbientStars count={5000} radius={70} size={0.12} color="#ffffff" rotationSpeed={0.02} />
-            <AmbientStars count={3000} radius={55} size={0.15} color="#ffffff" rotationSpeed={0.03} />
-            <AmbientStars count={1500} radius={45} size={0.18} color="#e8e8ff" rotationSpeed={0.04} />
+            {/* Ambient rotating stars for background depth - reduced count */}
+            <AmbientStars count={1200} radius={70} size={0.12} color="#ffffff" rotationSpeed={0.02} />
+            <AmbientStars count={800} radius={55} size={0.15} color="#ffffff" rotationSpeed={0.03} />
+            <AmbientStars count={500} radius={45} size={0.18} color="#e8e8ff" rotationSpeed={0.04} />
 
             {/* Some colored accent stars */}
             <AmbientStars count={500} radius={50} size={0.15} color="#c0b0ff" rotationSpeed={0.035} />
