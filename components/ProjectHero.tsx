@@ -37,7 +37,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-pink-900/10 rounded-3xl"></div>
       
-      <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 lg:p-12 overflow-hidden">
+      <div className="relative bg-gray-900/60 border border-gray-700/50 rounded-3xl p-8 lg:p-12 overflow-hidden">
         
         {/* Status Badge */}
         <motion.div
@@ -175,8 +175,8 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
             </div>
             
             {/* Project Image */}
-            <div className="relative bg-gradient-to-br from-purple-900 to-pink-900 rounded-b-2xl border-l border-r border-b border-gray-700 aspect-video overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
+            <div className="relative bg-gradient-to-br from-gray-950 to-gray-900 rounded-b-2xl border-l border-r border-b border-gray-700 aspect-video overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5"></div>
               
               {/* Project Image */}
               <Image

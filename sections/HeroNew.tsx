@@ -75,7 +75,7 @@ const BackgroundGradient = () => {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-[120px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px]"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.5, 0.8, 0.5],
@@ -150,7 +150,7 @@ function TechCard3D({ icon, name, color }: { icon: React.ReactNode; name: string
         <motion.div
           className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `linear-gradient(135deg, ${color || 'rgba(139, 92, 246, 0.3)'}, transparent, ${color || 'rgba(236, 72, 153, 0.3)'})`,
+            background: `linear-gradient(135deg, ${color || 'rgba(59, 130, 246, 0.3)'}, transparent, ${color || 'rgba(139, 92, 246, 0.3)'})`,
             padding: '1px',
           }}
         />
@@ -250,7 +250,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 mb-6"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 mb-6"
         >
           <span className="text-sm text-gray-300">🧪 MY SKILLS</span>
         </motion.div>
@@ -261,7 +261,7 @@ export default function Hero() {
           <motion.span
             className="inline-block italic font-serif"
             style={{
-              background: "linear-gradient(90deg, #ff6ec7, #a855f7, #ff8c42, #ff6ec7)",
+              background: "linear-gradient(90deg, #60a5fa, #a855f7, #6366f1, #60a5fa)",
               backgroundSize: "300% auto",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -338,7 +338,7 @@ export default function Hero() {
 
         {/* AI/ML */}
         <div className="mb-8">
-          <CategoryHeader color="from-purple-400 to-pink-500" label="AI / Machine Learning" />
+          <CategoryHeader color="from-purple-400 to-blue-500" label="AI / Machine Learning" />
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3">
             <TechCard3D icon={<SiOpenai className="text-[#412991]" />} name="OpenAI" color="rgba(65, 41, 145, 0.3)" />
             <TechCard3D icon={<SiTensorflow className="text-[#FF6F00]" />} name="TensorFlow" color="rgba(255, 111, 0, 0.3)" />
@@ -407,7 +407,7 @@ export default function Hero() {
         transition={{ duration: 3, repeat: Infinity }}
       />
       <motion.div
-        className="absolute top-1/3 left-20 w-2 h-2 bg-pink-500/50 rounded-full"
+        className="absolute top-1/3 left-20 w-2 h-2 bg-blue-500/50 rounded-full"
         animate={{ y: [0, 15, 0], opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
       />

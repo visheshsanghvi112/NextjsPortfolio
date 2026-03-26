@@ -43,8 +43,8 @@ const techConfig: Record<string, { color: string; IconComponent: any }> = {
   'TypeScript': { IconComponent: SiTypescript, color: 'text-blue-500' },
   'Tailwind CSS': { IconComponent: SiTailwindcss, color: 'text-cyan-400' },
   'Supabase': { IconComponent: SiSupabase, color: 'text-green-400' },
-  'Framer Motion': { IconComponent: SiFramer, color: 'text-pink-500' },
-  'Motion.dev': { IconComponent: SiFramer, color: 'text-pink-500' },
+  'Framer Motion': { IconComponent: SiFramer, color: 'text-purple-500' },
+  'Motion.dev': { IconComponent: SiFramer, color: 'text-purple-500' },
   'Sanity': { IconComponent: SiSanity, color: 'text-red-500' },
   'Sanity CMS': { IconComponent: SiSanity, color: 'text-red-500' },
   'Prisma': { IconComponent: SiPrisma, color: 'text-indigo-400' },
@@ -61,7 +61,7 @@ const techConfig: Record<string, { color: string; IconComponent: any }> = {
   'Three.js': { IconComponent: SiThreedotjs, color: 'text-white' },
   'Expo': { IconComponent: SiExpo, color: 'text-white' },
   'Remix': { IconComponent: SiRemix, color: 'text-white' },
-  'Chart.js': { IconComponent: SiChartdotjs, color: 'text-pink-400' },
+  'Chart.js': { IconComponent: SiChartdotjs, color: 'text-blue-400' },
 };
 
 type UIProject = {
@@ -131,7 +131,7 @@ const ProjectGridWithFilters = React.memo(function ProjectGridWithFilters({ proj
     [active, projects]
   );
 
-  const { visible, sentinelRef, hasMore } = useProgressiveList(filtered, 6, 6);
+  const { visible, sentinelRef, hasMore } = useProgressiveList(filtered, 4, 4);
 
   return (
     <>
@@ -141,14 +141,14 @@ const ProjectGridWithFilters = React.memo(function ProjectGridWithFilters({ proj
         onCategoryChange={setActive}
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <AnimatePresence mode="popLayout">
-          {visible.map((project) => (
+        <AnimatePresence>
+          {visible.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              style={{ contentVisibility: 'auto', containIntrinsicSize: '360px 420px' } as React.CSSProperties}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (index % 6) * 0.05, duration: 0.4 }}
+              style={{ contentVisibility: 'auto', containIntrinsicSize: '360px 420px', transform: 'translateZ(0)' } as React.CSSProperties}
             >
               <ProjectCard project={project} />
             </motion.div>
@@ -222,7 +222,7 @@ export default function ProjectsPage() {
           >
             <div className="text-sm text-gray-400 mb-4 tracking-widest uppercase">Featured Case Studies</div>
             <h1 className="text-5xl md:text-7xl font-light mb-6">
-              Curated <span className="italic font-serif bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">work</span>
+              Curated <span className="italic font-serif bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">work</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               A collection of carefully crafted digital experiences...

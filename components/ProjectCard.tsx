@@ -43,11 +43,12 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div
       whileHover={{ y: -5, scale: 1.02 }}
-      className="group bg-gradient-to-br from-gray-900/80 to-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-gray-600/50 transition-all duration-300 relative overflow-hidden"
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      className="group bg-gray-900/40 border border-gray-700/30 rounded-2xl p-6 hover:border-gray-600/50 transition-colors duration-300 relative overflow-hidden will-change-transform"
     >
       {/* Featured Badge */}
       {project.featured && (
-        <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-3 py-1 rounded-full font-medium z-10">
+        <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium z-10 shadow-lg">
           Featured
         </div>
       )}
@@ -90,8 +91,8 @@ function ProjectCard({ project }: ProjectCardProps) {
         {/* Header */}
         <div className="flex items-start justify-between">
           <div>
-            <div className="text-pink-400 text-sm font-medium mb-1">{project.subtitle}</div>
-            <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all">
+            <div className="text-purple-400 text-sm font-medium mb-1 tracking-tight">{project.subtitle}</div>
+            <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 group-hover:bg-clip-text transition-all duration-500">
               {project.title}
             </h3>
           </div>
@@ -149,7 +150,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         <div className="mt-4 pt-4 border-t border-gray-800">
           <Link
             href={`/projects/${project.id}`}
-            className="group flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/10 to-pink-600/10 hover:from-purple-600/20 hover:to-pink-600/20 text-purple-400 hover:text-purple-300 px-4 py-2 rounded-lg transition-all border border-purple-600/20 hover:border-purple-500/30"
+            className="group flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/10 to-blue-600/10 hover:from-purple-600/20 hover:to-blue-600/20 text-purple-400 hover:text-purple-300 px-4 py-2 rounded-lg transition-all border border-purple-600/20 hover:border-purple-500/30"
           >
             <span className="text-sm font-medium">View Details</span>
             <HiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -158,7 +159,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Decorative Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl duration-500"></div>
     </motion.div>
   );
 }

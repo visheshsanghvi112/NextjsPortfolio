@@ -364,14 +364,14 @@ export default function Hero() {
             <motion.button
               onClick={openModal}
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={{ 
-                opacity: 1, 
-                y: 0, 
+              animate={{
+                opacity: 1,
+                y: 0,
                 scale: 1,
               }}
               transition={{ duration: 0.6, delay: 1.2, type: "spring", stiffness: 200 }}
-              whileHover={{ 
-                scale: 1.08, 
+              whileHover={{
+                scale: 1.08,
                 y: -4,
                 boxShadow: "0 10px 30px rgba(168, 85, 247, 0.4)"
               }}
@@ -393,7 +393,7 @@ export default function Hero() {
                   backgroundSize: "200% 200%",
                 }}
               />
-              
+
               {/* Pulsing glow effect */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-white/10"
@@ -416,28 +416,28 @@ export default function Hero() {
               >
                 Let's Connect
               </motion.span>
-              
-              <motion.span 
+
+              <motion.span
                 className="relative z-10 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors"
-                animate={{ 
+                animate={{
                   x: [0, 5, 0],
                 }}
-                transition={{ 
+                transition={{
                   duration: 1.5,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
               >
-                <motion.svg 
-                  className="w-4 h-4" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <motion.svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
-                  animate={{ 
+                  animate={{
                     x: [0, 3, 0],
                     rotate: [0, 15, 0]
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 1.8,
                     repeat: Infinity,
                     ease: "easeInOut"
@@ -446,7 +446,7 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </motion.svg>
               </motion.span>
-              
+
               {/* Shimmer effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"

@@ -135,13 +135,13 @@ export default function Header() {
                         href="/"
                         onClick={() => setOpen(false)}
                         className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${pathname === '/'
-                            ? 'bg-white/10 text-white'
-                            : 'text-gray-300 hover:text-white'
+                          ? 'bg-white/10 text-white'
+                          : 'text-gray-300 hover:text-white'
                           }`}
                       >
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${pathname === '/'
-                            ? 'bg-blue-500/20 text-blue-400'
-                            : 'bg-gray-700/50 text-gray-400 group-hover:bg-blue-500/20 group-hover:text-blue-400'
+                          ? 'bg-blue-500/20 text-blue-400'
+                          : 'bg-gray-700/50 text-gray-400 group-hover:bg-blue-500/20 group-hover:text-blue-400'
                           } transition-all`}>
                           <HiHome className="w-4 h-4" />
                         </div>
@@ -185,13 +185,13 @@ export default function Header() {
                         href="/projects"
                         onClick={() => setOpen(false)}
                         className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all group ${pathname.startsWith('/projects')
-                            ? 'bg-white/10 text-white'
-                            : 'text-gray-300 hover:text-white'
+                          ? 'bg-white/10 text-white'
+                          : 'text-gray-300 hover:text-white'
                           }`}
                       >
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${pathname.startsWith('/projects')
-                            ? 'bg-green-500/20 text-green-400'
-                            : 'bg-gray-700/50 text-gray-400 group-hover:bg-green-500/20 group-hover:text-green-400'
+                          ? 'bg-green-500/20 text-green-400'
+                          : 'bg-gray-700/50 text-gray-400 group-hover:bg-green-500/20 group-hover:text-green-400'
                           } transition-all`}>
                           <HiCollection className="w-4 h-4" />
                         </div>

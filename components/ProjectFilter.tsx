@@ -19,7 +19,7 @@ export default function ProjectFilter({ categories, activeCategory, onCategoryCh
           onClick={() => onCategoryChange(category)}
           className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
             activeCategory === category
-              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+              ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/20'
               : 'bg-gray-800/50 text-gray-400 hover:text-white hover:bg-gray-700/50 border border-gray-700 hover:border-gray-600'
           }`}
         >

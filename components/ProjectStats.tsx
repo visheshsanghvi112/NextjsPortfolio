@@ -25,7 +25,7 @@ const stats = [
     icon: <HiTrendingUp className="w-6 h-6" />,
     label: 'Performance Boost',
     value: '+40%',
-    color: 'from-purple-400 to-pink-400',
+    color: 'from-purple-400 to-indigo-400',
   },
 ];
 
@@ -38,16 +38,17 @@ export default function ProjectStats() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-4xl font-light text-center mb-12"
         >
-          Impact <span className="italic font-serif text-purple-400">by Numbers</span>
+          Impact <span className="italic font-serif text-blue-400">by Numbers</span>
         </motion.h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.3 }}
               className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur border border-gray-700 rounded-xl p-6 text-center hover:border-gray-600 transition-all group"
             >
               <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${stat.color} rounded-xl text-white mb-4 group-hover:scale-110 transition-transform`}>

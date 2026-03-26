@@ -24,18 +24,8 @@ export default function FloatingActions() {
       {/* Chat/Contact Button */}
       <motion.button
         className="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group relative overflow-hidden"
-        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileHover={{ scale: 1.1, rotate: 5, boxShadow: "0 0 20px rgba(139, 92, 246, 0.4)" }}
         whileTap={{ scale: 0.9 }}
-        animate={{
-          boxShadow: ["0 4px 6px -1px rgba(0, 0, 0, 0.1)", "0 0 15px rgba(139, 92, 246, 0.5)", "0 4px 6px -1px rgba(0, 0, 0, 0.1)"]
-        }}
-        transition={{
-          boxShadow: {
-            duration: 3,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }
-        }}
         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         title="Let's Chat"
       >
